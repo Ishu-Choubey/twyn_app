@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: MainPage(),
-    ));
-
-class MainPage extends StatefulWidget {
-  @override
-  State<MainPage> createState() => _MainPageState();
+void main()
+{
+  runApp(MyApp());
 }
-
-class _MainPageState extends State<MainPage> {
+class MyApp extends StatelessWidget
+{
   @override
-  Widget build(BuildContext context) => Scaffold(
-        backgroundColor: Colors.purpleAccent,
-        body: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF591755),
-                Color(0xFFA23A5D),
-              ],
-            ),
-          ),
-        ),
-      );
+  Widget build(BuildContext context)
+  {
+    return MaterialApp(
+      title: 'Tywn Login Page',
+      home:LoginPage(),
+    )
+  }
 }
