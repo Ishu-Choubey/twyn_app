@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
         ),
             Positioned( //For Bottom vector
               left:  0,
-              bottom: -110,
+              bottom: -70,
               child:
               Align(
                 child:
