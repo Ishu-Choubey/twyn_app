@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
+import 'submitted-page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -77,7 +78,7 @@ class LoginPage extends StatelessWidget {
               top:  490,
               child:
               TextButton(
-                onPressed:  () {},
+                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Scene())),},
                 style:  TextButton.styleFrom (
                   padding:  EdgeInsets.zero,
                 ),

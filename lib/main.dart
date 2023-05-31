@@ -21,11 +21,7 @@ class MyApp extends StatelessWidget
         fontFamily: 'Helvetica'
       ),
       title: 'Tywn Login Page',
-      home:Scaffold(
-        body: SingleChildScrollView(
-          child: Scene(),
-        ),
-      ),
+      home: LoginPage(),
     );
   }
 }
