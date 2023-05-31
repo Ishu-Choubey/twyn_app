@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:stroke_text/stroke_text.dart';
 
 class LoginPage extends StatelessWidget {
@@ -13,7 +14,7 @@ class LoginPage extends StatelessWidget {
               gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.center,
-                colors: [Color(0xFF772858), Color(0xFF541655)],
+                colors: [Color(0xFFE15766), Color(0xFF541655)],
               ),
             ),
         child: Stack(
@@ -42,31 +43,31 @@ class LoginPage extends StatelessWidget {
               ),
             ),
             Positioned( //For Bottom vector
-              left:  45,
+              left:  55,
               bottom: 475,
               child:
               Align(
                 child:
                 Center(
                   child: SizedBox(
-                    child: Image.asset('images/twynw.png',  width: 313, height: 150, fit:  BoxFit.cover,),
+                    child: Image.asset('images/twynw.png',  width: 295, height: 138, fit:  BoxFit.cover,),
                   ),
                 ),
               ),
             ),
             Positioned(
-              left:  53,
-              bottom: 450,
+              left:  57,
+              bottom: 455,
               child:
               Align(
                 child:
                 SizedBox(
-                  width:  300,
+                  width:  295,
                   height:  43,
                   child:
                   Text('Immersive, AI-powered Digital Twins for Smart Factories',
                     textAlign:  TextAlign.center,
-                    style: GoogleFonts.inter (fontSize:  16, fontWeight:  FontWeight.w700, height:  1.2575, color:  Color(0xffFFFFFF),
+                    style: GoogleFonts.sourceSansPro (fontSize:  16, fontWeight:  FontWeight.w700, height:  1.2575, color:  Color(0xffFFFFFF),
                     ),
                   ),
                 ),
@@ -74,7 +75,7 @@ class LoginPage extends StatelessWidget {
             ),
             Positioned(
               left:  94,
-              top:  500,
+              top:  490,
               child:
               TextButton(
                 onPressed:  () {},
@@ -103,8 +104,8 @@ class LoginPage extends StatelessWidget {
                         Text(
                           'PLACE A NEW ORDER',
                           textAlign:  TextAlign.center,
-                          style:  GoogleFonts.inter (
-                            fontSize:  17,
+                          style:  GoogleFonts.sourceSansPro (
+                            fontSize:  16,
                             fontWeight:  FontWeight.w700,
                             height:  1.2575,
                             color:  Color(0xc4f9beec),
@@ -119,7 +120,7 @@ class LoginPage extends StatelessWidget {
             Positioned(
 // trackR8y (1:33)
               left:  94,
-              top:  570,
+              top:  560,
               child:
               TextButton(
                 onPressed:  () {},
@@ -148,8 +149,8 @@ class LoginPage extends StatelessWidget {
                         Text(
                           'TRACK YOUR ORDER',
                           textAlign:  TextAlign.center,
-                          style:  GoogleFonts.inter (
-                            fontSize:  17,
+                          style:  GoogleFonts.sourceSansPro (
+                            fontSize:  16,
                             fontWeight:  FontWeight.w700,
                             height:  1.2575,
                             color:  Color(0xc4f9beec),
