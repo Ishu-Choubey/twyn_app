@@ -40,7 +40,7 @@ class Scene extends StatelessWidget {
                   image: DecorationImage (
                     fit: BoxFit.cover,
                     image: AssetImage (
-                      'assets/page-1/images/mask-group.png',
+                      'images/mask-group.png',
                     ),
                   ),
                 ),
@@ -55,7 +55,7 @@ class Scene extends StatelessWidget {
                           width: 263.94*fem,
                           height: 118.53*fem,
                           child: Image.asset(
-                            'assets/page-1/images/twyn-logo-color-2.png',
+                            'images/twyn-logo-color-2.png',
                             fit: BoxFit.cover,
                           ),
                         ),
