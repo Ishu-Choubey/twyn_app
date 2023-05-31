@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget
         fontFamily: 'Helvetica'
       ),
       title: 'Tywn Login Page',
-      home: LoginPage(),
+      home: LoginPage(), //entering login page
     );
   }
 }
