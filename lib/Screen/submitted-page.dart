@@ -21,7 +21,7 @@ class Scene extends StatelessWidget {
         ),
         child: Container(
           // backgroundYXp (18:21)
-          padding: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 117*fem),
+          padding: EdgeInsets.fromLTRB(0*fem, 0*fem, 0*fem, 60*fem),
           width: double.infinity,
           height: double.infinity,
           decoration: BoxDecoration (
