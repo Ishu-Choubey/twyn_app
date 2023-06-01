@@ -113,7 +113,7 @@ class LoginPage extends StatelessWidget {
                               left: 94 * fem,
                               top: 505 * fem,
                               child: TextButton(
-                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Submit())),},
+                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Order())),},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
@@ -155,7 +155,7 @@ class LoginPage extends StatelessWidget {
                               left: 94 * fem,
                               top: 575 * fem,
                               child: TextButton(
-                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track())),},
+                                onPressed:  () {},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
