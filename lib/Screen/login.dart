@@ -6,166 +6,201 @@ import 'submitted-page.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 430;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
     return Scaffold(
       body: Container(
-            width:  double.infinity,
-            height:  double.infinity,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                begin: Alignment.bottomCenter,
-                end: Alignment.center,
-                colors: [Color(0xFFE15766), Color(0xFF541655)],
-              ),
-            ),
-        child: Stack(
-          children:  [Positioned( // lineelement2GLd (1:40)
-          left: 0,
-          top: -50,
-          child:
-          Align(
-            child:
-            SizedBox(
-              /*width: 500,
-              height:  200,*/
-              child: Image.asset('images/l1.png', fit:  BoxFit.cover,),
-            ),
+        width: double.infinity,
+        height: 944 * fem,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.center,
+            colors: [Color(0xFFE15766), Color(0xFF541655)],
           ),
         ),
-            Positioned( //For Bottom vector
-              left:  0,
-              bottom: -70,
-              child:
-              Align(
-                child:
-                SizedBox(
-                  child: Image.asset('images/l2.png', fit:  BoxFit.cover,),
-                ),
-              ),
-            ),
-            Positioned( //For Bottom vector
-              left:  55,
-              bottom: 475,
-              child:
-              Align(
-                child:
-                Center(
-                  child: SizedBox(
-                    child: Image.asset('images/twynw.png',  width: 295, height: 138, fit:  BoxFit.cover,),
-                  ),
-                ),
-              ),
-            ),
+        child: Stack(
+          children: [
             Positioned(
-              left:  57,
-              bottom: 455,
-              child:
-              Align(
-                child:
-                SizedBox(
-                  width:  295,
-                  height:  43,
-                  child:
-                  Text('Immersive, AI-powered Digital Twins for Smart Factories',
-                    textAlign:  TextAlign.center,
-                    style: GoogleFonts.sourceSansPro (fontSize:  16, fontWeight:  FontWeight.w700, height:  1.2575, color:  Color(0xffFFFFFF),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            Positioned(
-              left:  94,
-              top:  490,
-              child:
-              TextButton(
-                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Scene())),},
-                style:  TextButton.styleFrom (
-                  padding:  EdgeInsets.zero,
-                ),
-                child:
-                Container(
-                  padding:  EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  width:  239,
-                  height:  75,
-                  child:
-                  Container(
-// frame97ty (I1:32;440:2013)
-                    width:  double.infinity,
-                    height:  double.infinity,
-                    decoration:  BoxDecoration (
-                      color:  Color(0xb212091e),
-                      borderRadius:  BorderRadius.circular(30),
-                    ),
-                    child:
-                    Center(
-                      child:
-                      Center(
-                        child:
-                        Text(
-                          'PLACE A NEW ORDER',
-                          textAlign:  TextAlign.center,
-                          style:  GoogleFonts.sourceSansPro (
-                            fontSize:  16,
-                            fontWeight:  FontWeight.w700,
-                            height:  1.2575,
-                            color:  Color(0xc4f9beec),
-                          ),
+              left: 0 * fem,
+              top: 0 * fem,
+              child: Container(
+                width: 1488.58 * fem,
+                height: 2806.38 * fem,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      // lineelements2M3 (67:35)
+                      left: 0 * fem,
+                      top: 0 * fem,
+                      child: Container(
+                        width: 1488.58 * fem,
+                        height: 2806.38 * fem,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              // lineelement2k29 (67:36)
+                              left: 0 * fem,
+                              top: 0 * fem,
+                              child: Align(
+                                child: SizedBox(
+                                  // width: 450 * fem,
+                                  // height: 200 * fem,
+                                  child: Image.asset(
+                                    'images/l1.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              // lineelement3etD (67:37)
+                              left: 0 * fem,
+                              top: 280* fem,
+                              child: Align(
+                                child: SizedBox(
+                                  // width: 500 * fem,
+                                  // height:  * fem,
+                                  child: Image.asset(
+                                    'images/l2.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              // immersiveaipowereddigitaltwins (67:39)
+                              left: 60.0682983398 * fem,
+                              top: 422 * fem,
+                              child: Align(
+                                child: SizedBox(
+                                  width: 309 * fem,
+                                  height: 38 * fem,
+                                  child: Text(
+                                    'Immersive, AI-powered Digital Twins for Smart Factories',
+                                    textAlign: TextAlign.center,
+                                    style: SafeGoogleFont(
+                                      'Helvetica',
+                                      fontSize: 15 * ffem,
+                                      fontWeight: FontWeight.w700,
+                                      height: 1.2575 * ffem / fem,
+                                      color: Color(0xffe44f5c),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              // twynlogowhite1285 (67:40)
+                              left: 53.2540893555 * fem,
+                              top: 290.9998779297 * fem,
+                              child: Align(
+                                child: SizedBox(
+                                  width: 322.63 * fem,
+                                  height: 115 * fem,
+                                  child: Image.asset(
+                                    'images/twynw.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              // place8S1 (67:41)
+                              left: 94 * fem,
+                              top: 498 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                  padding: EdgeInsets.fromLTRB(
+                                      10 * fem, 10 * fem, 10 * fem, 10 * fem),
+                                  width: 239 * fem,
+                                  height: 75 * fem,
+                                  child: Container(
+                                    // frame9dNm (I67:41;440:2013)
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xb212091e),
+                                      borderRadius:
+                                          BorderRadius.circular(30 * fem),
+                                    ),
+                                    child: Center(
+                                      child: Center(
+                                        child: Text(
+                                          'PLACE A NEW ORDER',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'Helvetica',
+                                            fontSize: 17 * ffem,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.2575 * ffem / fem,
+                                            color: Color(0xc4f9beec),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              // track7Yq (67:42)
+                              left: 94 * fem,
+                              top: 575 * fem,
+                              child: TextButton(
+                                onPressed: () {},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                  padding: EdgeInsets.fromLTRB(
+                                      10 * fem, 10 * fem, 10 * fem, 10 * fem),
+                                  width: 241 * fem,
+                                  height: 75 * fem,
+                                  child: Container(
+                                    // frame11RJd (I67:42;440:2022)
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xb212091e),
+                                      borderRadius:
+                                          BorderRadius.circular(30 * fem),
+                                    ),
+                                    child: Center(
+                                      child: Center(
+                                        child: Text(
+                                          'TRACK YOUR ORDER',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'Helvetica',
+                                            fontSize: 17 * ffem,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.2575 * ffem / fem,
+                                            color: Color(0xc4f9beec),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
-                  ),
+                  ],
                 ),
               ),
             ),
-            Positioned(
-// trackR8y (1:33)
-              left:  94,
-              top:  560,
-              child:
-              TextButton(
-                onPressed:  () {},
-                style:  TextButton.styleFrom (
-                  padding:  EdgeInsets.zero,
-                ),
-                child:
-                Container(
-                  padding:  EdgeInsets.fromLTRB(10, 10, 10, 10),
-                  width:  241,
-                  height:  75,
-                  child:
-                  Container(
-// frame11itm (I1:33;440:2022)
-                    width:  double.infinity,
-                    height:  double.infinity,
-                    decoration:  BoxDecoration (
-                      color:  Color(0xb212091e),
-                      borderRadius:  BorderRadius.circular(30),
-                    ),
-                    child:
-                    Center(
-                      child:
-                      Center(
-                        child:
-                        Text(
-                          'TRACK YOUR ORDER',
-                          textAlign:  TextAlign.center,
-                          style:  GoogleFonts.sourceSansPro (
-                            fontSize:  16,
-                            fontWeight:  FontWeight.w700,
-                            height:  1.2575,
-                            color:  Color(0xc4f9beec),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-         ],
+          ],
         ),
-    ),
+      ),
     );
   }
 }
-
