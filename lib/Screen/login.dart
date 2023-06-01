@@ -72,7 +72,7 @@ class LoginPage extends StatelessWidget {
                             Positioned(
                               // immersiveaipowereddigitaltwins (67:39)
                               left: 60.0682983398 * fem,
-                              top: 422 * fem,
+                              top: 415 * fem,
                               child: Align(
                                 child: SizedBox(
                                   width: 309 * fem,
@@ -94,7 +94,7 @@ class LoginPage extends StatelessWidget {
                             Positioned(
                               // twynlogowhite1285 (67:40)
                               left: 53.2540893555 * fem,
-                              top: 290.9998779297 * fem,
+                              top: 305 * fem,
                               child: Align(
                                 child: SizedBox(
                                   width: 322.63 * fem,
@@ -109,9 +109,9 @@ class LoginPage extends StatelessWidget {
                             Positioned(
                               // place8S1 (67:41)
                               left: 94 * fem,
-                              top: 498 * fem,
+                              top: 505 * fem,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Scene())),},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
