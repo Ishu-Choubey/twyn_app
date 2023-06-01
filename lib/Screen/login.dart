@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:twyn_app/Screen/track-page.dart';
+import 'package:twyn_app/Screen/order-page.dart';
 import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
+import 'track-page.dart';
 
 class LoginPage extends StatelessWidget {
   @override
@@ -112,7 +113,7 @@ class LoginPage extends StatelessWidget {
                               left: 94 * fem,
                               top: 505 * fem,
                               child: TextButton(
-                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Scenenew())),},
+                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Submit())),},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
@@ -154,7 +155,7 @@ class LoginPage extends StatelessWidget {
                               left: 94 * fem,
                               top: 575 * fem,
                               child: TextButton(
-                                onPressed: () {},
+                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track())),},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),

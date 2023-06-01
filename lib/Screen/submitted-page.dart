@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
 
 
-class Scene extends StatelessWidget {
+class Submit extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
