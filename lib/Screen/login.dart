@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:twyn_app/Screen/track-page.dart';
 import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
 
@@ -111,7 +112,7 @@ class LoginPage extends StatelessWidget {
                               left: 94 * fem,
                               top: 505 * fem,
                               child: TextButton(
-                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Scene())),},
+                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Scenenew())),},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
