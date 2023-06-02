@@ -87,7 +87,7 @@ class LoginPage extends StatelessWidget {
                                       fontSize: 15 * ffem,
                                       fontWeight: FontWeight.w700,
                                       height: 1.2575 * ffem / fem,
-                                      color: Color(0xffe44f5c),
+                                      color: Color(0xffFFDBE8),
                                     ),
                                   ),
                                 ),
@@ -127,7 +127,7 @@ class LoginPage extends StatelessWidget {
                                     width: double.infinity,
                                     height: double.infinity,
                                     decoration: BoxDecoration(
-                                      color: Color(0xb212091e),
+                                      color: Color(0xff2C0031),
                                       borderRadius:
                                           BorderRadius.circular(30 * fem),
                                     ),
@@ -141,7 +141,7 @@ class LoginPage extends StatelessWidget {
                                             fontSize: 17 * ffem,
                                             fontWeight: FontWeight.w700,
                                             height: 1.2575 * ffem / fem,
-                                            color: Color(0xc4f9beec),
+                                            color: Color(0xffFFDBE8),
                                           ),
                                         ),
                                       ),
@@ -169,7 +169,7 @@ class LoginPage extends StatelessWidget {
                                     width: double.infinity,
                                     height: double.infinity,
                                     decoration: BoxDecoration(
-                                      color: Color(0xb212091e),
+                                      color: Color(0xff2C0031),
                                       borderRadius:
                                           BorderRadius.circular(30 * fem),
                                     ),
@@ -183,7 +183,7 @@ class LoginPage extends StatelessWidget {
                                             fontSize: 17 * ffem,
                                             fontWeight: FontWeight.w700,
                                             height: 1.2575 * ffem / fem,
-                                            color: Color(0xc4f9beec),
+                                            color: Color(0xffFFDBE8),
                                           ),
                                         ),
                                       ),
