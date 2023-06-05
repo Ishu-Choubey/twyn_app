@@ -12,7 +12,7 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
-  RangeValues values= RangeValues(100, 500);
+  RangeValues values= const RangeValues(100, 500);
 
   @override
   Widget build(BuildContext context) {
@@ -621,10 +621,10 @@ class _OrderState extends State<Order> {
                                       activeColor: Color(0xffBC4772),
                                       inactiveColor: Color(0xffE9E2E2),
                                       labels: labels,
-                                      divisions: 5,
+                                      divisions: 4,
                                       values: (values),
-                                      onChanged: (newValue){
-                                        values: newValue;
+                                      onChanged: (RangeValues newValue){
+                                        values= newValue;
                                         print('${newValue.start}, ${newValue.end}');
                                         setState((){
 
