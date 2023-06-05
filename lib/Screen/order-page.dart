@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 
-const List<String> list = <String>['Kolkata', 'New Delhi', 'Bangalore', 'Pune', 'Hyderabad'];
+const List<String> citylist = <String>['Kolkata', 'New Delhi', 'Bangalore', 'Pune', 'Hyderabad'];
 
 
 class Order extends StatefulWidget {
@@ -17,7 +17,9 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
-  double value = 40.0;
+  bool isExpanded = false ;
+  String selectedValue = 'choose your city ' ;
+  double value = 100.0;
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
@@ -32,7 +34,7 @@ class _OrderState extends State<Order> {
             child: Container(
               // isubmittedscreenLo8 (18:20)
               width: double.infinity,
-              height: 1100*fem,
+              height: isExpanded? 1200*fem: 1090*fem,
               decoration: BoxDecoration(
                 color: Color(0xffE1E1E1),
               ),
@@ -669,7 +671,7 @@ class _OrderState extends State<Order> {
                             ),//Slider Container
                             Container(
                               margin: EdgeInsets.fromLTRB(
-                                4 * fem, 0 * fem, 4 * fem, 20 * fem),
+                                4 * fem, 0 * fem, 4 * fem, 10 * fem),
                               width: double.infinity,
                               child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -690,36 +692,96 @@ class _OrderState extends State<Order> {
                                       ),
                                     ),
                                     Container(
+                                      margin: EdgeInsets.fromLTRB(
+                                          5 * fem, 0 * fem, 0 * fem, 0 * fem),
                                       width: double.infinity,
-                                      height: 50*fem,
-                                      decoration: BoxDecoration(
-                                          color: Color(0xfffafafa),
-                                          borderRadius:
-                                          BorderRadius.circular(33 * fem),
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: Color(0x120000000),
-                                              offset: Offset(7 * fem, 6 * fem),
-                                              blurRadius: 6 * fem,
-                                            ),
-                                          ]),
-                                      child: DropdownButton(
-                                        value: valueChoose,
-                                        hint:Text("---Your Delivery city---"),
-                                        isExpanded: true,
-                                        onChanged: (newValue) {
-                                          setState(() {
-                                            valueChoose= newValue;
-                                          });
-                                        },
-                                        items: list.map((valueItem){
-                                          return DropdownButtonItem(
-                                            value: valueItem,
-                                            child: Text(valueItem),
-                                          )
-                                        }).toList(),
+                                      height: 100*fem,
+                                        child: Padding(
+                                          padding: EdgeInsets.fromLTRB(3 * fem, 0 * fem, 0 * fem, 5 * fem),
+                                          child: Column(
+                                            children: [
+                                              SizedBox(height: 5,),
+                                              Container(
+                                                width: double.infinity,
+                                                height: 50*fem,
+                                                decoration: BoxDecoration(
+                                                    borderRadius:
+                                                    BorderRadius.circular(33*fem),
+                                                    color: Color(0xfffafafa),
+                                                    boxShadow: [
+                                                      BoxShadow(
+                                                        color: Color(0x120000000),
+                                                        offset: Offset(7 * fem, 6 * fem),
+                                                        blurRadius: 6 * fem,
+                                                      ),
+                                                    ]),
+                                                child: Center(
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.symmetric(horizontal: 15),
+                                                    child: InkWell(
+                                                        onTap: (){
+                                                          FocusScope.of(context).unfocus();
+                                                          isExpanded = !isExpanded;
+                                                          setState(() {
 
-                                      )
+                                                          });
+                                                        },
+                                                        child: Row(
+                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                          children: [
+                                                            Expanded(child: Text(selectedValue, textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
+                                                              fontSize: 14.5 * ffem, fontWeight: FontWeight.w500, height: 1.2575 * ffem / fem, color: Color(0xffA8A8A8),
+                                                            ),
+                                                            ),
+                                                            ),
+                                                            Icon( isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down ,
+                                                              color: isExpanded  ? Colors.red : Colors.blue,
+                                                            )
+                                                          ],
+                                                        )),
+                                                  ),
+                                                ),
+                                              ),
+                                              if(isExpanded)
+                                                ListView(
+                                                  shrinkWrap: true,
+                                                  physics: ScrollPhysics(),
+                                                  children: citylist.map((e) =>
+                                                      InkWell(
+                                                        onTap: (){
+                                                          isExpanded = false ;
+                                                          selectedValue = e ;
+                                                          setState(() {
+
+                                                          });
+                                                        },
+                                                        child: Container(
+                                                            height: 30,
+                                                            width: double.infinity,
+                                                            decoration: BoxDecoration(
+                                                              color: selectedValue == e ? Colors.pink: Color(0xffFBFBFB),
+                                                              boxShadow: [
+                                                                BoxShadow(
+                                                                  color: Color(0x120000000),
+                                                                  offset: Offset(7*fem, 6*fem),
+                                                                  blurRadius: 6*fem,
+                                                                )
+                                                              ]
+                                                            ),
+                                                            child: Center(child: Text(e.toString() ,textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
+                                                              fontSize: 14.5 * ffem, fontWeight: selectedValue == e  ? FontWeight.w700 :FontWeight.w500,
+                                                                height: 1.2575 * ffem / fem,
+                                                                color: Color(0xff151515)
+                                                              ) ,
+                                                            )
+                                                            )
+                                                        ),
+                                                      )
+                                                  ).toList(),
+                                                )
+                                            ],
+                                          ),
+                                      ),
                                     ),
                                   ]
                                ),
@@ -738,7 +800,7 @@ class _OrderState extends State<Order> {
                                 ),
                                 child: Container(
                                   padding: EdgeInsets.fromLTRB(
-                                      60 * fem, 13 * fem, 60 * fem, 13 * fem),
+                                      60 * fem, 0 * fem, 60 * fem, 13 * fem),
                                   width: double.infinity,
                                   height: 64 * fem,
                                   child: Container(
