@@ -5,6 +5,8 @@ import 'package:twyn_app/utils.dart';
 import 'package:flutter/gestures.dart';
 import 'submitted-page.dart';
 import 'package:flutter/foundation.dart';
+import 'package:syncfusion_flutter_sliders/sliders.dart';
+import 'package:syncfusion_flutter_core/theme.dart';
 
 class Order extends StatefulWidget {
   @override
@@ -12,11 +14,9 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
-  RangeValues values= const RangeValues(100, 500);
-
+  double value = 40.0;
   @override
   Widget build(BuildContext context) {
-    RangeLabels labels = RangeLabels(values.start.toString(), values.end.toString());
     double baseWidth = 450;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
@@ -603,7 +603,7 @@ class _OrderState extends State<Order> {
                                   ),
                                   Container(
                                     width: double.infinity,
-                                    height: 100*fem,
+                                    height: 130*fem,
                                     decoration: BoxDecoration(
                                         color: Color(0xfffafafa),
                                         borderRadius:
@@ -615,22 +615,49 @@ class _OrderState extends State<Order> {
                                             blurRadius: 6 * fem,
                                           ),
                                         ]),
-                                    child: RangeSlider(
-                                      min: 100,
-                                      max: 500,
-                                      activeColor: Color(0xffBC4772),
-                                      inactiveColor: Color(0xffE9E2E2),
-                                      labels: labels,
-                                      divisions: 4,
-                                      values: (values),
-                                      onChanged: (RangeValues newValue){
-                                        values= newValue;
-                                        print('${newValue.start}, ${newValue.end}');
-                                        setState((){
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(24, 20,24, 5),
+                                          child: Text(
+                                            'Choose the quantity required(in gms):',
+                                            textAlign: TextAlign.center,
+                                            style: SafeGoogleFont(
+                                              'Helvetica',
+                                              fontSize: 14.5 * ffem,
+                                              fontWeight: FontWeight.w500,
+                                              height: 1.2575 * ffem / fem,
+                                              color: Color(0xffA8A8A8),
+                                            ),
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.fromLTRB(10, 0,10, 0),
+                                          child: SfSliderTheme(
+                                            data: SfSliderThemeData(
+                                              activeLabelStyle: TextStyle(color: Color(0xffA8A8A8), fontSize: 11, fontWeight: FontWeight.w700),
+                                              inactiveLabelStyle: TextStyle(color: Color(0xffA8A8A8), fontSize: 11, fontWeight: FontWeight.w500),
+                                            ),
+                                            child: SfSlider(
+                                              min: 100,
+                                              max: 500,
+                                              value: value,
+                                              interval: 100,
+                                              activeColor: Color(0xffBC4772),
+                                              inactiveColor: Color(0xffE9E2E2),
+                                              showTicks: true,
+                                              showLabels: true,
+                                              enableTooltip: true,
+                                              //showDividers: true,
+                                              //minorTicksPerInterval: 1,
+                                              onChanged: (value) => setState(()=>this.value = value),
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
 
-                                        });
-                                      },
-                                    )
                                   ),
                                 ],
                               ),
