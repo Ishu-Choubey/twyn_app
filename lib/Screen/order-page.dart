@@ -723,6 +723,7 @@ class _OrderState extends State<Order> {
                                                           FocusScope.of(context).unfocus();
                                                           isExpanded = !isExpanded;
                                                           setState(() {
+
                                                           });
                                                         },
                                                         child: Row(
