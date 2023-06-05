@@ -71,6 +71,9 @@ flutter:
     - images/twyn-logo-color-1-bg.png
     - images/twyn-logo-color-2.png
     - images/mask-group.png
+    - images/pinkog.png
+    - images/redog.png
+    - images/yellow og.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
