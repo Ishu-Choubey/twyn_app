@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
 import 'order-page.dart';
+import 'track-page.dart';
 
 class Submit extends StatelessWidget {
   @override
@@ -221,7 +222,7 @@ class Submit extends StatelessWidget {
                           margin: EdgeInsets.fromLTRB(
                               31 * fem, 0 * fem, 31 * fem, 0 * fem),
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track())),},
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),

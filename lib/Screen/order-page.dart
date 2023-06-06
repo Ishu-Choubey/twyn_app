@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
-import 'package:flutter/gestures.dart';
 import 'submitted-page.dart';
-import 'package:flutter/foundation.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 
 const List<String> citylist = <String>['Kolkata', 'New Delhi', 'Bangalore', 'Pune', 'Hyderabad'];
-
 
 class Order extends StatefulWidget {
   @override
@@ -17,9 +12,10 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
+  int? _value=1;
   bool isExpanded = false ;
   String selectedValue = 'choose your city ' ;
-  double value = 100.0;
+  double v = 100.0;
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
@@ -234,7 +230,7 @@ class _OrderState extends State<Order> {
                                       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
                                       padding: EdgeInsets.fromLTRB(30 * fem, 40 * fem, 30 * fem, 40 * fem),
                                       width: double.infinity,
-                                      height: 70*fem,
+                                      height: 80*fem,
                                       decoration: BoxDecoration(
                                         color: Color(0xfff6f6f6),
                                         borderRadius: BorderRadius.circular(33 * fem),
@@ -248,339 +244,52 @@ class _OrderState extends State<Order> {
                                       child:
                                       Container(
                                         // colouroptionsmim (1:70)
-                                        width:  double.infinity,
-                                        height:  double.infinity,
-                                        child:
-                                        Row(
-                                          crossAxisAlignment:  CrossAxisAlignment.center,
-                                          children:  [
-                                            Container(
-                                              // frameredWRT (I1:70;407:2216)
-                                              margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 27*fem, 0*fem),
-                                              child:
-                                              TextButton(
-                                                onPressed:  () {},
-                                                style:  TextButton.styleFrom (
-                                                  padding:  EdgeInsets.zero,
+                                        child: Padding(
+                                          padding: const EdgeInsets.fromLTRB(10, 0,10, 0),
+                                          child: Row(
+                                           mainAxisAlignment: MainAxisAlignment.center,
+                                            children: [
+                                              Row(children: [
+                                                Radio(
+                                                    value: 1,
+                                                    groupValue: _value,
+                                                    onChanged: (value){
+                                                      setState(() {
+                                                      _value = value;
+                                                    });
+                                                      },
                                                 ),
-                                                child:
-                                                Container(
-                                                  width:  72*fem,
-                                                  height:  double.infinity,
-                                                  child:
-                                                  Container(
-                                                    // frame128u (I1:70;407:2216;407:2179)
-                                                    width:  double.infinity,
-                                                    height:  double.infinity,
-                                                    child:
-                                                    Row(
-                                                      crossAxisAlignment:  CrossAxisAlignment.end,
-                                                      children:  [
-                                                        Container(
-                                                          // autogroupmtwfmMP (EtTbuLFL19bXh2VgqAMtwf)
-                                                          margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 9*fem, 0*fem),
-                                                          child:
-                                                            Container(
-                                                              width:  34*fem,
-                                                              height:  33*fem,
-                                                              child:  Align(
-                                                                child: SizedBox(
-                                                                  width: 33 * fem,
-                                                                  height: 33 * fem,
-                                                                  child: Image.asset(
-                                                                    'images/l2.png',
-                                                                    fit: BoxFit.cover,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                        ),
-                                                        Container(
-                                                          // autogroup92nyEVs (EtTc1QuXieWN1AW1Dt92ny)
-                                                          width:  29*fem,
-                                                          height:  27*fem,
-                                                          child:
-                                                          Stack(
-                                                            children:  [
-                                                              Positioned(
-                                                                // reda3w (I1:70;407:2216;407:2182)
-                                                                left:  0*fem,
-                                                                top:  10*fem,
-                                                                child:
-                                                                Align(
-                                                                  child:
-                                                                  SizedBox(
-                                                                    width:  21*fem,
-                                                                    height:  17*fem,
-                                                                    child:
-                                                                    Text(
-                                                                      'RED',
-                                                                      style:  SafeGoogleFont (
-                                                                        'Helvetica',
-                                                                        fontSize:  13*ffem,
-                                                                        fontWeight:  FontWeight.w400,
-                                                                        height:  1.2575*ffem/fem,
-                                                                        color:  Color(0xffa7a7a7),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Positioned(
-                                                                // ea4c4cD6u (I1:70;407:2216;407:2183)
-                                                                left:  3*fem,
-                                                                top:  0*fem,
-                                                                child:
-                                                                Align(
-                                                                  child:
-                                                                  SizedBox(
-                                                                    width:  26*fem,
-                                                                    height:  11*fem,
-                                                                    child:
-                                                                    Text(
-                                                                      'EA4C4C',
-                                                                      textAlign:  TextAlign.center,
-                                                                      style:  SafeGoogleFont (
-                                                                        'Helvetica',
-                                                                        fontSize:  8*ffem,
-                                                                        fontWeight:  FontWeight.w400,
-                                                                        height:  1.2575*ffem/fem,
-                                                                        color:  Color(0xffa7a7a7),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
+                                                SizedBox(width: 28.0),
+                                                Text("1"),
+                                              ],),
+                                              Row(children: [
+                                                Radio(
+                                                  value: 2,
+                                                  groupValue: _value,
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      _value = value;
+                                                    });
+                                                  },
                                                 ),
-                                              ),
-                                            ),
-                                            Container(
-                                              // framepinkVq7 (I1:70;407:2217)
-                                              margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 17*fem, 0*fem),
-                                              child:
-                                              TextButton(
-                                                onPressed:  () {},
-                                                style:  TextButton.styleFrom (
-                                                  padding:  EdgeInsets.zero,
+                                                SizedBox(width: 28.0),
+                                                Text("2"),
+                                              ],),
+                                              Row(children: [
+                                                Radio(
+                                                  value:3,
+                                                  groupValue: _value,
+                                                  onChanged: (value){
+                                                    setState(() {
+                                                      _value = value;
+                                                    });
+                                                  },
                                                 ),
-                                                child:
-                                                Container(
-                                                  width:  72*fem,
-                                                  height:  double.infinity,
-                                                  child:
-                                                  Container(
-                                                    // frame1RCy (I1:70;407:2217;407:2185)
-                                                    width:  double.infinity,
-                                                    height:  double.infinity,
-                                                    child:
-                                                    Row(
-                                                      crossAxisAlignment:  CrossAxisAlignment.end,
-                                                      children:  [
-                                                        Container(
-                                                          // autogroupvjehBC9 (EtTcDzNuZwQSbWEmd3VJEh)
-                                                          margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 9*fem, 0*fem),
-                                                          child:
-                                                          TextButton(
-                                                            onPressed:  () {},
-                                                            style:  TextButton.styleFrom (
-                                                              padding:  EdgeInsets.zero,
-                                                            ),
-                                                            child:
-                                                            Container(
-                                                              width:  34*fem,
-                                                              height:  33*fem,
-                                                              child:  Align(
-                                                                child: SizedBox(
-                                                                  width: 33 * fem,
-                                                                  height: 33 * fem,
-                                                                  child: Image.asset(
-                                                                    'images/l2.png',
-                                                                    fit: BoxFit.cover,
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                        Container(
-                                                          // autogroupmeztUS9 (EtTcJeuoTdrfpdB3KWmeZT)
-                                                          width:  29*fem,
-                                                          height:  27*fem,
-                                                          child:
-                                                          Stack(
-                                                            children:  [
-                                                              Positioned(
-                                                                // pinkDPj (I1:70;407:2217;407:2188)
-                                                                left:  0*fem,
-                                                                top:  10*fem,
-                                                                child:
-                                                                Align(
-                                                                  child:
-                                                                  SizedBox(
-                                                                    width:  25*fem,
-                                                                    height:  17*fem,
-                                                                    child:
-                                                                    Text(
-                                                                      'PINK',
-                                                                      style:  SafeGoogleFont (
-                                                                        'Helvetica',
-                                                                        fontSize:  13*ffem,
-                                                                        fontWeight:  FontWeight.w400,
-                                                                        height:  1.2575*ffem/fem,
-                                                                        color:  Color(0xffa7a7a7),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                              Positioned(
-                                                                // ea4c89irH (I1:70;407:2217;407:2189)
-                                                                left:  3*fem,
-                                                                top:  0*fem,
-                                                                child:
-                                                                Align(
-                                                                  child:
-                                                                  SizedBox(
-                                                                    width:  26*fem,
-                                                                    height:  11*fem,
-                                                                    child:
-                                                                    Text(
-                                                                      'EA4C89',
-                                                                      textAlign:  TextAlign.center,
-                                                                      style:  SafeGoogleFont (
-                                                                        'Helvetica',
-                                                                        fontSize:  8*ffem,
-                                                                        fontWeight:  FontWeight.w400,
-                                                                        height:  1.2575*ffem/fem,
-                                                                        color:  Color(0xf7a8a8a8),
-                                                                      ),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ],
-                                                          ),
-                                                        ),
-                                                      ],
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                            TextButton(
-                                              // frameyellow26H (I1:70;407:2218)
-                                              onPressed:  () {},
-                                              style:  TextButton.styleFrom (
-                                                padding:  EdgeInsets.zero,
-                                              ),
-                                              child:
-                                              Container(
-                                                width:  79*fem,
-                                                height:  double.infinity,
-                                                child:
-                                                Container(
-                                                  // frame1AiH (I1:70;407:2218;407:2191)
-                                                  width:  double.infinity,
-                                                  height:  double.infinity,
-                                                  child:
-                                                  Row(
-                                                    crossAxisAlignment:  CrossAxisAlignment.end,
-                                                    children:  [
-                                                      Container(
-                                                        // autogroupeipdvxM (EtTcWZjd3FqHffMCLKeipD)
-                                                        margin:  EdgeInsets.fromLTRB(0*fem, 0*fem, 9*fem, 0*fem),
-                                                        child:
-                                                        TextButton(
-                                                          onPressed:  () {},
-                                                          style:  TextButton.styleFrom (
-                                                            padding:  EdgeInsets.zero,
-                                                          ),
-                                                          child:
-                                                          Container(
-                                                            child:  Align(
-                                                              child: SizedBox(
-                                                                width: 33 * fem,
-                                                                height: 33 * fem,
-                                                                child: Image.asset(
-                                                                  'images/l2.png',
-                                                                  fit: BoxFit.cover,
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        // autogroupqgkwR8R (EtTcbtv5CdCye5r5R9QGKw)
-                                                        width:  36*fem,
-                                                        height:  27*fem,
-                                                        child:
-                                                        Stack(
-                                                          children:  [
-                                                            Positioned(
-                                                              // yellowAbo (I1:70;407:2218;407:2194)
-                                                              left:  0*fem,
-                                                              top:  10*fem,
-                                                              child:
-                                                              Align(
-                                                                child:
-                                                                SizedBox(
-                                                                  width:  36*fem,
-                                                                  height:  17*fem,
-                                                                  child:
-                                                                  Text(
-                                                                    'YELLOW',
-                                                                    style:  SafeGoogleFont (
-                                                                      'Helvetica',
-                                                                      fontSize:  13*ffem,
-                                                                      fontWeight:  FontWeight.w400,
-                                                                      height:  1.2575*ffem/fem,
-                                                                      color:  Color(0xffa7a7a7),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                            Positioned(
-                                                              // ffcc5cG93 (I1:70;407:2218;407:2195)
-                                                              left:  3*fem,
-                                                              top:  0*fem,
-                                                              child:
-                                                              Align(
-                                                                child:
-                                                                SizedBox(
-                                                                  width:  26*fem,
-                                                                  height:  11*fem,
-                                                                  child:
-                                                                  Text(
-                                                                    'FFCC5C',
-                                                                    textAlign:  TextAlign.center,
-                                                                    style:  SafeGoogleFont (
-                                                                      'Helvetica',
-                                                                      fontSize:  8*ffem,
-                                                                      fontWeight:  FontWeight.w400,
-                                                                      height:  1.2575*ffem/fem,
-                                                                      color:  Color(0xf7a8a8a8),
-                                                                    ),
-                                                                  ),
-                                                                ),
-                                                              ),
-                                                            ),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
+                                                SizedBox(width: 28.0),
+                                                Text("3"),
+                                              ],),
+                                            ],
+                                          ),
                                         ),
                                       ),
                                     )
@@ -649,7 +358,7 @@ class _OrderState extends State<Order> {
                                               child: SfSlider(
                                                 min: 100,
                                                 max: 500,
-                                                value: value,
+                                                value: v,
                                                 interval: 100,
                                                 activeColor: Color(0xffBC4772),
                                                 inactiveColor: Color(0xffE9E2E2),
@@ -658,7 +367,7 @@ class _OrderState extends State<Order> {
                                                 enableTooltip: true,
                                                 //showDividers: true,
                                                 //minorTicksPerInterval: 1,
-                                                onChanged: (value) => setState(()=>this.value = value),
+                                                onChanged: (value) => setState(()=>this.v = value),
                                               ),
                                             ),
                                           ),
