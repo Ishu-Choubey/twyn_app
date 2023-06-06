@@ -135,6 +135,158 @@ class Track extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Container(
+                        margin: EdgeInsets.fromLTRB(
+                            35 * fem, 0 * fem, 35 * fem, 0 * fem),
+                        width: double.infinity,
+                      decoration: BoxDecoration(
+                          color: Color(0xfffafafa),
+                          borderRadius:
+                          BorderRadius.circular(33 * fem),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x120000000),
+                              offset: Offset(7 * fem, 6 * fem),
+                              blurRadius: 6 * fem,
+                            ),
+                          ]),
+
+
+                      child: Table(
+                        border: TableBorder.symmetric(
+                          outside: BorderSide.none,
+                          inside: const BorderSide(width: 1, color: Color(0xffD9D9D9), style: BorderStyle.solid),
+                        ),
+                        children: [
+                          TableRow(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color: Color(0xffF0F0F0),
+                                  borderRadius:
+                                  BorderRadius.only(
+                                    topLeft: Radius.circular(33*fem),
+                                  ),
+                                ),
+                                child: Padding(padding: EdgeInsets.all(10),
+                                  child: Center(
+                                    child: Text(
+                                        "Customer Name:",
+                                        style: SafeGoogleFont(
+                                        'Helvetica',
+                                        fontSize: 16 * ffem,
+                                        fontWeight: FontWeight.w600,
+                                        height: 1.2575 * ffem / fem,
+                                        color: Color(0xffA8A8A8),
+                                      )
+                                    ),
+                                  )
+                                  ),
+                              ),
+                                Padding(padding: EdgeInsets.all(10),
+                                    child: Text(
+                                        "Yui",
+                                        style: SafeGoogleFont(
+                                          'Helvetica',
+                                          fontSize: 16 * ffem,
+                                          fontWeight: FontWeight.w600,
+                                          height: 1.2575 * ffem / fem,
+                                          color: Color(0xffA8A8A8),
+                                        )
+                                    )
+                                ),
+                            ]
+                          ),
+                          TableRow(
+                              children: [
+                                Container(
+                                  color: Color(0xffF0F0F0),
+                                  child: Padding(padding: EdgeInsets.all(10),
+                                      child: Center(
+                                        child: Text("Product Color:",
+                                            style: SafeGoogleFont(
+                                              'Helvetica',
+                                              fontSize: 16 * ffem,
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.2575 * ffem / fem,
+                                              color: Color(0xffA8A8A8),)),
+                                      )
+                                  ),
+                                ),
+                                Padding(padding: EdgeInsets.all(10),
+                                    child: Text("Red",
+                                        style: SafeGoogleFont(
+                                          'Helvetica',
+                                          fontSize: 16 * ffem,
+                                          fontWeight: FontWeight.w600,
+                                          height: 1.2575 * ffem / fem,
+                                          color: Color(0xffA8A8A8),))
+                                ),
+                              ]
+                          ),
+                          TableRow(
+                              children: [
+                                Container(
+                                  color: Color(0xffF0F0F0),
+                                  child: Padding(padding: EdgeInsets.all(10),
+                                      child: Center(
+                                        child: Text("Product Quantity:",
+                                            style: SafeGoogleFont(
+                                              'Helvetica',
+                                              fontSize: 16 * ffem,
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.2575 * ffem / fem,
+                                              color: Color(0xffA8A8A8),)),
+                                      )
+                                  ),
+                                ),
+                                Padding(padding: EdgeInsets.all(10),
+                                    child: Text("200gm",
+                                        style: SafeGoogleFont(
+                                          'Helvetica',
+                                          fontSize: 16 * ffem,
+                                          fontWeight: FontWeight.w600,
+                                          height: 1.2575 * ffem / fem,
+                                          color: Color(0xffA8A8A8),))
+                                ),
+                              ]
+                          ),
+                          TableRow(
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffF0F0F0),
+                                    borderRadius:
+                                    BorderRadius.only(
+                                      bottomLeft: Radius.circular(33*fem),
+                                    ),
+                                  ),
+                                  child: Padding(padding: EdgeInsets.all(10),
+                                      child: Center(
+                                        child: Text("Current Status:",
+                                            style: SafeGoogleFont(
+                                              'Helvetica',
+                                              fontSize: 16 * ffem,
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.2575 * ffem / fem,
+                                              color: Color(0xffA8A8A8),)),
+                                      )
+                                  ),
+                                ),
+                                Padding(padding: EdgeInsets.all(10),
+                                    child: Text("Product Is At Dispach Unit",
+                                        style: SafeGoogleFont(
+                                          'Helvetica',
+                                          fontSize: 16 * ffem,
+                                          fontWeight: FontWeight.w600,
+                                          height: 1.2575 * ffem / fem,
+                                          color: Color(0xffA8A8A8),))
+                                ),
+                              ]
+                          ),
+                        ],
+                      )
+                    ),
 
 
 
