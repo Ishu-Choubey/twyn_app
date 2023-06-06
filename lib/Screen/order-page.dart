@@ -256,7 +256,8 @@ class _OrderState extends State<Order> {
                                                     onChanged: (value){
                                                       setState(() {
                                                       _value = value;
-                                                    });
+                                                    }
+                                                    );
                                                       },
                                                 ),
                                                 SizedBox(width: 28.0),
