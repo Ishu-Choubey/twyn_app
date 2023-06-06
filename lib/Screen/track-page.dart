@@ -304,7 +304,7 @@ class Track extends StatelessWidget {
                     ),
                     Container(
                       margin: EdgeInsets.fromLTRB(
-                          70 * fem, 20 * fem, 70 * fem, 0 * fem),
+                          55 * fem, 20 * fem, 55 * fem, 0 * fem),
                       child: Row(
                         children: [
                           Text(
