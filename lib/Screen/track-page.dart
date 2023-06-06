@@ -137,7 +137,7 @@ class Track extends StatelessWidget {
                     ),
                     Container(
                         margin: EdgeInsets.fromLTRB(
-                            35 * fem, 0 * fem, 35 * fem, 0 * fem),
+                            70 * fem, 0 * fem, 70 * fem, 0 * fem),
                         width: double.infinity,
                       decoration: BoxDecoration(
                           color: Color(0xfffafafa),
@@ -151,8 +151,10 @@ class Track extends StatelessWidget {
                             ),
                           ]),
 
-
                       child: Table(
+                        columnWidths: {
+                          0: FixedColumnWidth(120*fem),// fixed to 100 width
+                        },
                         border: TableBorder.symmetric(
                           outside: BorderSide.none,
                           inside: const BorderSide(width: 1, color: Color(0xffD9D9D9), style: BorderStyle.solid),
@@ -160,35 +162,35 @@ class Track extends StatelessWidget {
                         children: [
                           TableRow(
                             children: [
-                              Container(
-                                decoration: BoxDecoration(
-                                  color: Color(0xffF0F0F0),
-                                  borderRadius:
-                                  BorderRadius.only(
-                                    topLeft: Radius.circular(33*fem),
-                                  ),
-                                ),
-                                child: Padding(padding: EdgeInsets.all(10),
-                                  child: Center(
-                                    child: Text(
-                                        "Customer Name:",
-                                        style: SafeGoogleFont(
-                                        'Helvetica',
-                                        fontSize: 16 * ffem,
-                                        fontWeight: FontWeight.w600,
-                                        height: 1.2575 * ffem / fem,
-                                        color: Color(0xffA8A8A8),
-                                      )
+                              TableCell(
+                                verticalAlignment: TableCellVerticalAlignment.fill,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    color: Color(0xffF0F0F0),
+                                    borderRadius:
+                                    BorderRadius.only(
+                                      topLeft: Radius.circular(33*fem),
                                     ),
-                                  )
                                   ),
-                              ),
-                                Padding(padding: EdgeInsets.all(10),
+                                  child: Padding(padding: EdgeInsets.all(10),
+                                      child: Center(
+                                        child: Text("Customer Name:",
+                                            style: SafeGoogleFont(
+                                              'Helvetica',
+                                              fontSize: 13 * ffem,
+                                              fontWeight: FontWeight.w600,
+                                              height: 1.2575 * ffem / fem,
+                                              color: Color(0xffA8A8A8),)),
+                                      )
+                                  ),
+                                ),),
+                                Padding(padding: EdgeInsets.fromLTRB(
+                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
                                     child: Text(
                                         "Yui",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 16 * ffem,
+                                          fontSize: 13 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),
@@ -199,25 +201,30 @@ class Track extends StatelessWidget {
                           ),
                           TableRow(
                               children: [
-                                Container(
-                                  color: Color(0xffF0F0F0),
-                                  child: Padding(padding: EdgeInsets.all(10),
-                                      child: Center(
-                                        child: Text("Product Color:",
-                                            style: SafeGoogleFont(
-                                              'Helvetica',
-                                              fontSize: 16 * ffem,
-                                              fontWeight: FontWeight.w600,
-                                              height: 1.2575 * ffem / fem,
-                                              color: Color(0xffA8A8A8),)),
-                                      )
-                                  ),
-                                ),
-                                Padding(padding: EdgeInsets.all(10),
+                                TableCell(
+                                  verticalAlignment: TableCellVerticalAlignment.fill,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffF0F0F0),
+                                    ),
+                                    child: Padding(padding: EdgeInsets.all(10),
+                                        child: Center(
+                                          child: Text("Product Color:",
+                                              style: SafeGoogleFont(
+                                                'Helvetica',
+                                                fontSize: 13 * ffem,
+                                                fontWeight: FontWeight.w600,
+                                                height: 1.2575 * ffem / fem,
+                                                color: Color(0xffA8A8A8),)),
+                                        )
+                                    ),
+                                  ),),
+                                Padding(padding: EdgeInsets.fromLTRB(
+                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
                                     child: Text("Red",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 16 * ffem,
+                                          fontSize: 13 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),))
@@ -226,25 +233,30 @@ class Track extends StatelessWidget {
                           ),
                           TableRow(
                               children: [
-                                Container(
-                                  color: Color(0xffF0F0F0),
-                                  child: Padding(padding: EdgeInsets.all(10),
-                                      child: Center(
-                                        child: Text("Product Quantity:",
-                                            style: SafeGoogleFont(
-                                              'Helvetica',
-                                              fontSize: 16 * ffem,
-                                              fontWeight: FontWeight.w600,
-                                              height: 1.2575 * ffem / fem,
-                                              color: Color(0xffA8A8A8),)),
-                                      )
-                                  ),
-                                ),
-                                Padding(padding: EdgeInsets.all(10),
+                                TableCell(
+                                  verticalAlignment: TableCellVerticalAlignment.fill,
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: Color(0xffF0F0F0),
+                                    ),
+                                    child: Padding(padding: EdgeInsets.all(10),
+                                        child: Center(
+                                          child: Text("Product Quantity:",
+                                              style: SafeGoogleFont(
+                                                'Helvetica',
+                                                fontSize: 13 * ffem,
+                                                fontWeight: FontWeight.w600,
+                                                height: 1.2575 * ffem / fem,
+                                                color: Color(0xffA8A8A8),)),
+                                        )
+                                    ),
+                                  ),),
+                                Padding(padding: EdgeInsets.fromLTRB(
+                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
                                     child: Text("200gm",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 16 * ffem,
+                                          fontSize: 13 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),))
@@ -252,8 +264,11 @@ class Track extends StatelessWidget {
                               ]
                           ),
                           TableRow(
+
                               children: [
-                                Container(
+                                TableCell(
+                                  verticalAlignment: TableCellVerticalAlignment.fill,
+                                  child: Container(
                                   decoration: BoxDecoration(
                                     color: Color(0xffF0F0F0),
                                     borderRadius:
@@ -266,18 +281,20 @@ class Track extends StatelessWidget {
                                         child: Text("Current Status:",
                                             style: SafeGoogleFont(
                                               'Helvetica',
-                                              fontSize: 16 * ffem,
+                                              fontSize: 13 * ffem,
                                               fontWeight: FontWeight.w600,
                                               height: 1.2575 * ffem / fem,
                                               color: Color(0xffA8A8A8),)),
                                       )
                                   ),
-                                ),
-                                Padding(padding: EdgeInsets.all(10),
+                                ),),
+
+                                Padding(padding: EdgeInsets.fromLTRB(
+                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
                                     child: Text("Product Is At Dispach Unit",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 16 * ffem,
+                                          fontSize: 13 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),))
@@ -287,15 +304,6 @@ class Track extends StatelessWidget {
                         ],
                       )
                     ),
-
-
-
-
-
-
-
-
-
                     Container(
                       margin: EdgeInsets.fromLTRB(
                           70 * fem, 20 * fem, 70 * fem, 0 * fem),
