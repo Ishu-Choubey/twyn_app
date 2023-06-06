@@ -106,7 +106,7 @@ class Track extends StatelessWidget {
                       ),
                     Container(
                       margin: EdgeInsets.fromLTRB(
-                          70 * fem, 0 * fem, 70 * fem, 20 * fem),
+                          55 * fem, 0 * fem, 55 * fem, 25 * fem),
                       child: Row(
                         children: [
                           Text(
@@ -137,7 +137,7 @@ class Track extends StatelessWidget {
                     ),
                     Container(
                         margin: EdgeInsets.fromLTRB(
-                            70 * fem, 0 * fem, 70 * fem, 0 * fem),
+                            60 * fem, 0 * fem, 60 * fem, 0 * fem),
                         width: double.infinity,
                       decoration: BoxDecoration(
                           color: Color(0xfffafafa),
@@ -153,7 +153,7 @@ class Track extends StatelessWidget {
 
                       child: Table(
                         columnWidths: {
-                          0: FixedColumnWidth(120*fem),// fixed to 100 width
+                          0: FixedColumnWidth(150*fem),// fixed to 100 width
                         },
                         border: TableBorder.symmetric(
                           outside: BorderSide.none,
@@ -172,25 +172,24 @@ class Track extends StatelessWidget {
                                       topLeft: Radius.circular(33*fem),
                                     ),
                                   ),
-                                  child: Padding(padding: EdgeInsets.all(10),
+                                  child: Padding(padding: EdgeInsets.fromLTRB(20*fem, 11*fem, 10*fem, 10*fem),
                                       child: Center(
                                         child: Text("Customer Name:",
                                             style: SafeGoogleFont(
                                               'Helvetica',
-                                              fontSize: 13 * ffem,
+                                              fontSize: 14.5 * ffem,
                                               fontWeight: FontWeight.w600,
                                               height: 1.2575 * ffem / fem,
                                               color: Color(0xffA8A8A8),)),
                                       )
                                   ),
                                 ),),
-                                Padding(padding: EdgeInsets.fromLTRB(
-                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
+                                Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
                                     child: Text(
                                         "Yui",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 13 * ffem,
+                                          fontSize: 14.5 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),
@@ -207,24 +206,23 @@ class Track extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: Color(0xffF0F0F0),
                                     ),
-                                    child: Padding(padding: EdgeInsets.all(10),
+                                    child: Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
                                         child: Center(
                                           child: Text("Product Color:",
                                               style: SafeGoogleFont(
                                                 'Helvetica',
-                                                fontSize: 13 * ffem,
+                                                fontSize: 14.5 * ffem,
                                                 fontWeight: FontWeight.w600,
                                                 height: 1.2575 * ffem / fem,
                                                 color: Color(0xffA8A8A8),)),
                                         )
                                     ),
                                   ),),
-                                Padding(padding: EdgeInsets.fromLTRB(
-                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
+                                Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
                                     child: Text("Red",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 13 * ffem,
+                                          fontSize: 14.5 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),))
@@ -239,12 +237,12 @@ class Track extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: Color(0xffF0F0F0),
                                     ),
-                                    child: Padding(padding: EdgeInsets.all(10),
+                                    child: Padding(padding: EdgeInsets.fromLTRB(30*fem, 10*fem, 10*fem, 10*fem),
                                         child: Center(
                                           child: Text("Product Quantity:",
                                               style: SafeGoogleFont(
                                                 'Helvetica',
-                                                fontSize: 13 * ffem,
+                                                fontSize: 14.5 * ffem,
                                                 fontWeight: FontWeight.w600,
                                                 height: 1.2575 * ffem / fem,
                                                 color: Color(0xffA8A8A8),)),
@@ -252,11 +250,11 @@ class Track extends StatelessWidget {
                                     ),
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(
-                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
+                                    20 * fem, 10 * fem, 15 * fem, 10 * fem),
                                     child: Text("200gm",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 13 * ffem,
+                                          fontSize: 14.5 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),))
@@ -276,12 +274,12 @@ class Track extends StatelessWidget {
                                       bottomLeft: Radius.circular(33*fem),
                                     ),
                                   ),
-                                  child: Padding(padding: EdgeInsets.all(10),
+                                  child: Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
                                       child: Center(
                                         child: Text("Current Status:",
                                             style: SafeGoogleFont(
                                               'Helvetica',
-                                              fontSize: 13 * ffem,
+                                              fontSize: 14.5 * ffem,
                                               fontWeight: FontWeight.w600,
                                               height: 1.2575 * ffem / fem,
                                               color: Color(0xffA8A8A8),)),
@@ -290,11 +288,11 @@ class Track extends StatelessWidget {
                                 ),),
 
                                 Padding(padding: EdgeInsets.fromLTRB(
-                                    15 * fem, 10 * fem, 15 * fem, 10 * fem),
+                                    20 * fem, 10 * fem, 15 * fem, 10 * fem),
                                     child: Text("Product Is At Dispach Unit",
                                         style: SafeGoogleFont(
                                           'Helvetica',
-                                          fontSize: 13 * ffem,
+                                          fontSize: 14.5 * ffem,
                                           fontWeight: FontWeight.w600,
                                           height: 1.2575 * ffem / fem,
                                           color: Color(0xffA8A8A8),))
