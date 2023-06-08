@@ -15,6 +15,15 @@ class _OrderState extends State<Order> {
   int? _value=1;
   bool isExpanded = false ;
   String selectedValue = 'choose your city ' ;
+  dynamic _color1 = Color(0xfffafafa);
+  dynamic _color2 = Color(0xfffafafa);
+  dynamic _color3 = Color(0xfffafafa);
+  dynamic _colortext1 = Color(0xffA8A8A8);
+  dynamic _colortext2 = Color(0xffA8A8A8);
+  dynamic _colortext3 = Color(0xffA8A8A8);
+  dynamic weight1 = FontWeight.w500;
+  dynamic weight2 = FontWeight.w500;
+  dynamic weight3 = FontWeight.w500;
   double v = 100.0;
   @override
   Widget build(BuildContext context) {
@@ -227,10 +236,8 @@ class _OrderState extends State<Order> {
                                       ),
                                     ),
                                     Container(          //colour box
-                                      margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 0 * fem, 0 * fem),
-                                      padding: EdgeInsets.fromLTRB(30 * fem, 40 * fem, 30 * fem, 40 * fem),
+                                      padding: EdgeInsets.fromLTRB(0 * fem, 10 * fem, 0 * fem, 10 * fem),
                                       width: double.infinity,
-                                      height: 80*fem,
                                       decoration: BoxDecoration(
                                         color: Color(0xfff6f6f6),
                                         borderRadius: BorderRadius.circular(33 * fem),
@@ -245,51 +252,164 @@ class _OrderState extends State<Order> {
                                       Container(
                                         // colouroptionsmim (1:70)
                                         child: Padding(
-                                          padding: const EdgeInsets.fromLTRB(10, 0,10, 0),
+                                          padding: EdgeInsets.fromLTRB(15*fem, 0,10*fem, 0),
                                           child: Row(
-                                           mainAxisAlignment: MainAxisAlignment.center,
                                             children: [
-                                              Row(children: [
-                                                Radio(
-                                                    value: 1,
-                                                    groupValue: _value,
-                                                    onChanged: (value){
+                                            Stack(
+                                              children: [
+                                                Container(
+                                                  width: 40*fem,
+                                                  height: 40*fem,
+                                                  decoration: BoxDecoration(
+                                                    color: _color1,
+                                                    borderRadius: BorderRadius.circular(100),
+                                                  ),
+                                                ),
+
+                                                Container(
+                                                  margin: EdgeInsets.fromLTRB(5*fem, 5*fem,0, 0),
+                                                  width: 30*fem,
+                                                  height: 30*fem,
+                                                  decoration: BoxDecoration(
+                                                    color: Color(0xffEA4C4C),
+                                                    borderRadius: BorderRadius.circular(100),
+                                                  ),
+                                                  child: MaterialButton(onPressed: () {
+                                                    setState(() {
+                                                      _color1 = Color(0xfffaa5a5);
+                                                      _color2 = Color(0xfffafafa);
+                                                      _color3 = Color(0xfffafafa);
+                                                      weight1 = FontWeight.w600;
+                                                      weight2 = FontWeight.w500;
+                                                      weight3 = FontWeight.w500;
+                                                      _colortext1=Color(0xffbc4772);
+                                                      _colortext2=Color(0xffA8A8A8);
+                                                      _colortext3=Color(0xffA8A8A8);// This change Container color
+                                                    });
+                                                  }),
+                                                )
+                                              ],
+                                            ),
+                                              Padding(
+                                                padding: EdgeInsets.fromLTRB(5*fem,0,15*fem,0),
+                                                child: Container(
+                                                  child: Text(
+                                                    'Red',
+                                                    style: SafeGoogleFont(
+                                                      'Helvetica',
+                                                      fontSize: 17.5 * ffem,
+                                                      fontWeight: weight1,
+                                                      height: 1.2575 * ffem / fem,
+                                                      color: _colortext1
+                                                    ),
+                                                  ),
+                                                ),
+                                              ),
+
+                                              Stack(
+                                                children: [
+                                                  Container(
+                                                    width: 40*fem,
+                                                    height: 40*fem,
+                                                    decoration: BoxDecoration(
+                                                      color: _color2,
+                                                      borderRadius: BorderRadius.circular(100),
+                                                    ),
+                                                  ),
+
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(5*fem, 5*fem,0, 0),
+                                                    width: 30*fem,
+                                                    height: 30*fem,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xffea4c89),
+                                                      borderRadius: BorderRadius.circular(100),
+                                                    ),
+                                                    child: MaterialButton(onPressed: () {
                                                       setState(() {
-                                                      _value = value;
-                                                    }
-                                                    );
-                                                      },
+                                                        _color1 = Color(0xfffafafa);
+                                                        _color2 = Color(0xffeaa5bf);
+                                                        _color3 = Color(0xfffafafa);
+                                                        weight2 = FontWeight.w600;
+                                                        weight1 = FontWeight.w500;
+                                                        weight3 = FontWeight.w500;
+                                                        _colortext2=Color(0xffbc4772);
+                                                        _colortext1=Color(0xffA8A8A8);
+                                                        _colortext3=Color(0xffA8A8A8);
+                                                      });
+                                                    }),
+                                                  )
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.fromLTRB(5*fem,0,15*fem,0),
+                                                child: Container(
+                                                  child: Text(
+                                                    'Pink',
+                                                    style: SafeGoogleFont(
+                                                        'Helvetica',
+                                                        fontSize: 17.5 * ffem,
+                                                        fontWeight: weight2,
+                                                        height: 1.2575 * ffem / fem,
+                                                        color: _colortext2
+                                                    ),
+                                                  ),
                                                 ),
-                                                SizedBox(width: 28.0),
-                                                Text("1"),
-                                              ],),
-                                              Row(children: [
-                                                Radio(
-                                                  value: 2,
-                                                  groupValue: _value,
-                                                  onChanged: (value){
-                                                    setState(() {
-                                                      _value = value;
-                                                    });
-                                                  },
+                                              ),
+
+                                              Stack(
+                                                children: [
+                                                  Container(
+                                                    width: 40*fem,
+                                                    height: 40*fem,
+                                                    decoration: BoxDecoration(
+                                                      color: _color3,
+                                                      borderRadius: BorderRadius.circular(100),
+                                                    ),
+                                                  ),
+
+                                                  Container(
+                                                    margin: EdgeInsets.fromLTRB(5*fem, 5*fem,0, 0),
+                                                    width: 30*fem,
+                                                    height: 30*fem,
+                                                    decoration: BoxDecoration(
+                                                      color: Color(0xffffcc5c),
+                                                      borderRadius: BorderRadius.circular(100),
+                                                    ),
+                                                    child: MaterialButton(onPressed: () {
+                                                      setState(() {
+                                                        _color1 = Color(0xfffafafa);
+                                                        _color2 = Color(0xfffafafa);
+                                                        _color3 = Color(0xffffe8b5);
+                                                        weight3 = FontWeight.w600;
+                                                        weight2 = FontWeight.w500;
+                                                        weight1 = FontWeight.w500;
+                                                        _colortext2=Color(0xffA8A8A8);
+                                                        _colortext1=Color(0xffA8A8A8);
+                                                        _colortext3=Color(0xffbc4772);// This change Container color
+                                                      });
+                                                    }),
+                                                  )
+                                                ],
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsets.fromLTRB(5*fem,0,0*fem,0),
+                                                child: Container(
+                                                  child: Text(
+                                                    'Yellow',
+                                                    style: SafeGoogleFont(
+                                                        'Helvetica',
+                                                        fontSize: 17.5 * ffem,
+                                                        fontWeight: weight3,
+                                                        height: 1.2575 * ffem / fem,
+                                                        color: _colortext3
+                                                    ),
+                                                  ),
                                                 ),
-                                                SizedBox(width: 28.0),
-                                                Text("2"),
-                                              ],),
-                                              Row(children: [
-                                                Radio(
-                                                  value:3,
-                                                  groupValue: _value,
-                                                  onChanged: (value){
-                                                    setState(() {
-                                                      _value = value;
-                                                    });
-                                                  },
-                                                ),
-                                                SizedBox(width: 28.0),
-                                                Text("3"),
-                                              ],),
-                                            ],
+                                              )
+
+
+                                            ]
                                           ),
                                         ),
                                       ),
@@ -342,7 +462,7 @@ class _OrderState extends State<Order> {
                                               textAlign: TextAlign.center,
                                               style: SafeGoogleFont(
                                                 'Helvetica',
-                                                fontSize: 14.5 * ffem,
+                                                fontSize: 15.5 * ffem,
                                                 fontWeight: FontWeight.w500,
                                                 height: 1.2575 * ffem / fem,
                                                 color: Color(0xffA8A8A8),
