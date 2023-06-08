@@ -333,8 +333,6 @@ class Track extends StatelessWidget {
                         ],
                       ),
                     ),
-
-
                     Container(
                       width: double.infinity,
                       decoration: BoxDecoration(

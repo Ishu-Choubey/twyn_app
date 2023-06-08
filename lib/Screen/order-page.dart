@@ -39,7 +39,7 @@ class _OrderState extends State<Order> {
             child: Container(
               // isubmittedscreenLo8 (18:20)
               width: double.infinity,
-              height: isExpanded? 1200*fem: 1090*fem,
+              height: isExpanded? 1250*fem: 1050*fem,
               decoration: BoxDecoration(
                 color: Color(0xffE1E1E1),
               ),
@@ -522,104 +522,122 @@ class _OrderState extends State<Order> {
                                       ),
                                     ),
                                     Container(
-                                      margin: EdgeInsets.fromLTRB(
-                                          5 * fem, 0 * fem, 0 * fem, 0 * fem),
                                       width: double.infinity,
-                                      height: 100*fem,
-                                        child: Padding(
-                                          padding: EdgeInsets.fromLTRB(3 * fem, 0 * fem, 0 * fem, 5 * fem),
-                                          child: Column(
-                                            children: [
-                                              SizedBox(height: 5,),
-                                              Container(
-                                                width: double.infinity,
-                                                height: 50*fem,
-                                                decoration: BoxDecoration(
-                                                    borderRadius:
-                                                    BorderRadius.circular(33*fem),
-                                                    color: Color(0xfffafafa),
-                                                    boxShadow: [
-                                                      BoxShadow(
-                                                        color: Color(0x120000000),
-                                                        offset: Offset(7 * fem, 6 * fem),
-                                                        blurRadius: 6 * fem,
-                                                      ),
-                                                    ]),
-                                                child: Center(
-                                                  child: Padding(
-                                                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                                                    child: InkWell(
-                                                        onTap: (){
-                                                          FocusScope.of(context).unfocus();
-                                                          isExpanded = !isExpanded;
-                                                          setState(() {
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              width: double.infinity,
+                                              height: 50*fem,
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                  BorderRadius.circular(33*fem),
+                                                  color: Color(0xfffafafa),
+                                                  boxShadow: [
+                                                    BoxShadow(
+                                                      color: Color(0x120000000),
+                                                      offset: Offset(7 * fem, 6 * fem),
+                                                      blurRadius: 6 * fem,
+                                                    ),
+                                                  ]),
+                                              child: Center(
+                                                child: Padding(
+                                                  padding: EdgeInsets.symmetric(horizontal: 15*fem),
 
-                                                          });
-                                                        },
-                                                        child: Row(
-                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                          children: [
-                                                            Expanded(child: Text(selectedValue, textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
-                                                              fontSize: 14.5 * ffem, fontWeight: FontWeight.w500, height: 1.2575 * ffem / fem, color: Color(0xffA8A8A8),
-                                                            ),
-                                                            ),
-                                                            ),
-                                                            Icon( isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down ,
-                                                              color: isExpanded  ? Colors.red : Colors.blue,
-                                                            )
-                                                          ],
-                                                        )),
-                                                  ),
+
+
+
+                                                  child: InkWell(
+                                                      onTap: (){
+                                                        FocusScope.of(context).unfocus();
+                                                        isExpanded = !isExpanded;
+                                                        setState(() {
+                                                        });
+                                                      },
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                        children: [
+                                                          Expanded(child: Text(selectedValue, textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
+                                                            fontSize: 14.5 * ffem, fontWeight: FontWeight.w500, height: 1.2575 * ffem / fem, color: Color(0xffA8A8A8),
+                                                          ),
+                                                          ),
+                                                          ),
+                                                          Icon( isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down ,
+                                                            color: isExpanded  ? Colors.red : Colors.blue,
+                                                          )
+                                                        ],
+                                                      )),
                                                 ),
                                               ),
-                                              if(isExpanded)
-                                                ListView(
-                                                  shrinkWrap: true,
-                                                  physics: ScrollPhysics(),
-                                                  children: citylist.map((e) =>
-                                                      InkWell(
-                                                        onTap: (){
-                                                          isExpanded = false ;
-                                                          selectedValue = e ;
-                                                          setState(() {
+                                            ),
+                                            if(isExpanded)
+                                              ListView(
+                                                shrinkWrap: true,
+                                                physics: ScrollPhysics(),
+                                                children: citylist.map((e) =>
+                                                    InkWell(
+                                                      onTap: (){
+                                                        isExpanded = false ;
+                                                        selectedValue = e ;
+                                                        setState(() {
 
-                                                          });
-                                                        },
-                                                        child: Container(
-                                                            height: 30,
-                                                            width: double.infinity,
-                                                            decoration: BoxDecoration(
-                                                              color: selectedValue == e ? Colors.pink: Color(0xffFBFBFB),
-                                                              boxShadow: [
-                                                                BoxShadow(
-                                                                  color: Color(0x120000000),
-                                                                  offset: Offset(7*fem, 6*fem),
-                                                                  blurRadius: 6*fem,
-                                                                )
-                                                              ]
-                                                            ),
-                                                            child: Center(child: Text(e.toString() ,textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
-                                                              fontSize: 14.5 * ffem, fontWeight: selectedValue == e  ? FontWeight.w700 :FontWeight.w500,
-                                                                height: 1.2575 * ffem / fem,
-                                                                color: Color(0xff151515)
-                                                              ) ,
-                                                            )
-                                                            )
-                                                        ),
-                                                      )
-                                                  ).toList(),
-                                                )
-                                            ],
-                                          ),
-                                      ),
-                                    ),
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                          height: 30,
+                                                          width: double.infinity,
+                                                          decoration: BoxDecoration(
+                                                            color: selectedValue == e ? Colors.pink: Color(0xffFBFBFB),
+                                                            boxShadow: [
+                                                              BoxShadow(
+                                                                color: Color(0x120000000),
+                                                                offset: Offset(7*fem, 6*fem),
+                                                                blurRadius: 6*fem,
+                                                              )
+                                                            ]
+                                                          ),
+                                                          child: Center(child: Text(e.toString() ,textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
+                                                            fontSize: 14.5 * ffem, fontWeight: selectedValue == e  ? FontWeight.w700 :FontWeight.w500,
+                                                              height: 1.2575 * ffem / fem,
+                                                              color: Color(0xff151515)
+                                                            ) ,
+                                                          )
+                                                          )
+                                                      ),
+                                                    )
+                                                ).toList(),
+                                              )
+                                          ],
+                                        ),
+                                    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                   ]
                                ),
-                            ),//Delivery Container
+                            ),
+                            //Delivery Container
                             Container(
                               // trackLrJ (18:31)
                               margin: EdgeInsets.fromLTRB(
-                                  31 * fem, 0 * fem, 31 * fem, 0 * fem),
+                                  31 * fem, 20 * fem, 31 * fem, 0 * fem),
                               child: TextButton(
                                 onPressed: () => {
                                   Navigator.of(context).push(MaterialPageRoute(
