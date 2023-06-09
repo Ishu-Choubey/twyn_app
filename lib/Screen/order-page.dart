@@ -12,7 +12,6 @@ class Order extends StatefulWidget {
 }
 
 class _OrderState extends State<Order> {
-  int? _value=1;
   bool isExpanded = false ;
   String selectedValue = 'choose your city ' ;
   dynamic _color1 = Color(0xfffafafa);
@@ -494,7 +493,6 @@ class _OrderState extends State<Order> {
                                           ),
                                         ],
                                       ),
-
                                     ),
                                   ],
                                 ),
