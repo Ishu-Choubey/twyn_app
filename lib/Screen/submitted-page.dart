@@ -137,7 +137,7 @@ class Submit extends StatelessWidget {
                             'ORDER ID:',
                             style: SafeGoogleFont(
                               'Helvetica',
-                              fontSize: 14 * ffem,
+                              fontSize: 14.5 * ffem,
                               fontWeight: FontWeight.w700,
                               height: 1.2575 * ffem / fem,
                               color: Color(0xff666464),
@@ -167,7 +167,7 @@ class Submit extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'Helvetica',
-                                fontSize: 12 * ffem,
+                                fontSize: 14 * ffem,
                                 fontWeight: FontWeight.w300,
                                 height: 1.2575 * ffem / fem,
                                 color: Color(0xff000000),
@@ -205,8 +205,8 @@ class Submit extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       style: SafeGoogleFont(
                                         'Helvetica',
-                                        fontSize: 13 * ffem,
-                                        fontWeight: FontWeight.w700,
+                                        fontSize: 14 * ffem,
+                                        fontWeight: FontWeight.w600,
                                         height: 1.2575 * ffem / fem,
                                         color: Color(0xfff6f4f4),
                                       ),
@@ -246,8 +246,8 @@ class Submit extends StatelessWidget {
                                       textAlign: TextAlign.center,
                                       style: SafeGoogleFont(
                                         'Helvetica',
-                                        fontSize: 13 * ffem,
-                                        fontWeight: FontWeight.w700,
+                                        fontSize: 14 * ffem,
+                                        fontWeight: FontWeight.w600,
                                         height: 1.2575 * ffem / fem,
                                         color: Color(0xfff6f4f4),
                                       ),
