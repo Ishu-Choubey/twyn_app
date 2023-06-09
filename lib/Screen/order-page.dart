@@ -14,9 +14,9 @@ class Order extends StatefulWidget {
 class _OrderState extends State<Order> {
   bool isExpanded = false ;
   String selectedValue = 'choose your city ' ;
-  dynamic _color1 = Color(0xfffafafa);
-  dynamic _color2 = Color(0xfffafafa);
-  dynamic _color3 = Color(0xfffafafa);
+  dynamic _color1 = Color(0xfff6f6f6);
+  dynamic _color2 = Color(0xfff6f6f6);
+  dynamic _color3 = Color(0xfff6f6f6);
   dynamic _colortext1 = Color(0xffA8A8A8);
   dynamic _colortext2 = Color(0xffA8A8A8);
   dynamic _colortext3 = Color(0xffA8A8A8);
@@ -539,11 +539,7 @@ class _OrderState extends State<Order> {
                                                   ]),
                                               child: Center(
                                                 child: Padding(
-                                                  padding: EdgeInsets.symmetric(horizontal: 15*fem),
-
-
-
-
+                                                  padding: EdgeInsets.fromLTRB(45*fem,0,15*fem,0),
                                                   child: InkWell(
                                                       onTap: (){
                                                         FocusScope.of(context).unfocus();
@@ -555,12 +551,12 @@ class _OrderState extends State<Order> {
                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                         children: [
                                                           Expanded(child: Text(selectedValue, textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
-                                                            fontSize: 14.5 * ffem, fontWeight: FontWeight.w500, height: 1.2575 * ffem / fem, color: Color(0xffA8A8A8),
+                                                            fontSize: 15.5 * ffem, fontWeight: FontWeight.w500, height: 1.2575 * ffem / fem, color: Color(0xffA8A8A8),
                                                           ),
                                                           ),
                                                           ),
                                                           Icon( isExpanded ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down ,
-                                                            color: isExpanded  ? Colors.red : Colors.blue,
+                                                            color: isExpanded  ? Color(0xffA8A8A8) : Color(0xffA8A8A8),
                                                           )
                                                         ],
                                                       )),
@@ -581,10 +577,10 @@ class _OrderState extends State<Order> {
                                                         });
                                                       },
                                                       child: Container(
-                                                          height: 30,
+                                                          height: 30*fem,
                                                           width: double.infinity,
                                                           decoration: BoxDecoration(
-                                                            color: selectedValue == e ? Colors.pink: Color(0xffFBFBFB),
+                                                              color: selectedValue == e ? Color(0xffCCCBCB): Color(0xffFBFBFB),
                                                             boxShadow: [
                                                               BoxShadow(
                                                                 color: Color(0x120000000),
@@ -594,9 +590,9 @@ class _OrderState extends State<Order> {
                                                             ]
                                                           ),
                                                           child: Center(child: Text(e.toString() ,textAlign: TextAlign.center, style: SafeGoogleFont('Helvetica',
-                                                            fontSize: 14.5 * ffem, fontWeight: selectedValue == e  ? FontWeight.w700 :FontWeight.w500,
+                                                            fontSize: 14.5 * ffem, fontWeight: selectedValue == e  ? FontWeight.w600 :FontWeight.w500,
                                                               height: 1.2575 * ffem / fem,
-                                                              color: Color(0xff151515)
+                                                              color: Color(0xff6F6A6A)
                                                             ) ,
                                                           )
                                                           )
@@ -607,27 +603,6 @@ class _OrderState extends State<Order> {
                                           ],
                                         ),
                                     )
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                   ]
                                ),
                             ),
@@ -648,7 +623,7 @@ class _OrderState extends State<Order> {
                                   padding: EdgeInsets.fromLTRB(
                                       60 * fem, 0 * fem, 60 * fem, 13 * fem),
                                   width: double.infinity,
-                                  height: 64 * fem,
+                                  height: 55 * fem,
                                   child: Container(
                                     // frame11FiN (I18:31;440:2040)
                                     width: double.infinity,

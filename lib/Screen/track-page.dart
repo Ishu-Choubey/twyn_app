@@ -333,22 +333,24 @@ class Track extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                          color: Color(0xfffafafa),
-                          borderRadius:
-                          BorderRadius.circular(33 * fem),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0x120000000),
-                              offset: Offset(7 * fem, 6 * fem),
-                              blurRadius: 6 * fem,
-                            ),
-                          ]),
-                      child: Text('HELLO'),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(60*fem, 20*fem, 60*fem, 20*fem),
+                      child: Container(
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            color: Color(0xfffafafa),
+                            borderRadius:
+                            BorderRadius.circular(33 * fem),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x120000000),
+                                offset: Offset(7 * fem, 6 * fem),
+                                blurRadius: 6 * fem,
+                              ),
+                            ]),
+                        child: Text('HELLO'),
+                      ),
                     )
-
                   ]
               ),
             ),
