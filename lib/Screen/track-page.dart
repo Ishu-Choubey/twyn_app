@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'submitted-page.dart';
 import 'package:flutter/foundation.dart';
 import 'package:timeline_tile/timeline_tile.dart';
+import 'package:twyn_app/my_flutter_app_icons.dart';
 
 class Track extends StatelessWidget {
   @override
@@ -436,7 +437,7 @@ class Track extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(10*fem),
-                                          child: Icon(Icons.message,
+                                          child: Icon(MyFlutterApp.group_1502,
                                             size: 25*fem,
                                             color: Colors.white,
                                           ),
@@ -447,7 +448,7 @@ class Track extends StatelessWidget {
                                             padding: EdgeInsets.fromLTRB(10*fem,25*fem,0*fem,25*fem),
                                             child: RichText(
                                               text: TextSpan(
-                                                text: 'Material loading\n',
+                                                text: 'Material Inspection\n',
                                                 style: SafeGoogleFont(
                                                   'Helvetica',
                                                   fontSize: 14.5 * ffem,
@@ -457,7 +458,7 @@ class Track extends StatelessWidget {
                                                 ),
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'The material has been loaded',
+                                                      text: 'The material has been Inspected',
                                                       style: SafeGoogleFont(
                                                         'Helvetica',
                                                         fontSize: 14.5 * ffem,
@@ -498,7 +499,7 @@ class Track extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(10*fem),
-                                          child: Icon(Icons.message,
+                                          child: Icon(MyFlutterApp.vector_1_,
                                             size: 25*fem,
                                             color: Colors.white,
                                           ),
@@ -509,7 +510,7 @@ class Track extends StatelessWidget {
                                             padding: EdgeInsets.fromLTRB(10*fem,25*fem,0*fem,25*fem),
                                             child: RichText(
                                               text: TextSpan(
-                                                text: 'Material loading\n',
+                                                text: 'Filing\n',
                                                 style: SafeGoogleFont(
                                                   'Helvetica',
                                                   fontSize: 14.5 * ffem,
@@ -519,7 +520,7 @@ class Track extends StatelessWidget {
                                                 ),
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'The material has been loaded',
+                                                      text: 'The material went for filling',
                                                       style: SafeGoogleFont(
                                                         'Helvetica',
                                                         fontSize: 14.5 * ffem,
@@ -559,7 +560,7 @@ class Track extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(10*fem),
-                                          child: Icon(Icons.message,
+                                          child: Icon(MyFlutterApp.vector_2_,
                                             size: 25*fem,
                                             color: Colors.white,
                                           ),
@@ -570,7 +571,7 @@ class Track extends StatelessWidget {
                                             padding: EdgeInsets.fromLTRB(10*fem,25*fem,0*fem,25*fem),
                                             child: RichText(
                                               text: TextSpan(
-                                                text: 'Material loading\n',
+                                                text: 'Quality Inspection\n',
                                                 style: SafeGoogleFont(
                                                   'Helvetica',
                                                   fontSize: 14.5 * ffem,
@@ -580,7 +581,7 @@ class Track extends StatelessWidget {
                                                 ),
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'The material has been loaded',
+                                                      text: 'Quality of material is inspected',
                                                       style: SafeGoogleFont(
                                                         'Helvetica',
                                                         fontSize: 14.5 * ffem,
@@ -620,7 +621,7 @@ class Track extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(10*fem),
-                                          child: Icon(Icons.message,
+                                          child: Icon(MyFlutterApp.group_1502,
                                             size: 25*fem,
                                             color: Colors.white,
                                           ),
@@ -631,7 +632,7 @@ class Track extends StatelessWidget {
                                             padding: EdgeInsets.fromLTRB(10*fem,25*fem,0*fem,25*fem),
                                             child: RichText(
                                               text: TextSpan(
-                                                text: 'Material loading\n',
+                                                text: 'Filled\n',
                                                 style: SafeGoogleFont(
                                                   'Helvetica',
                                                   fontSize: 14.5 * ffem,
@@ -641,7 +642,7 @@ class Track extends StatelessWidget {
                                                 ),
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'The material has been loaded',
+                                                      text: 'The material has been filled',
                                                       style: SafeGoogleFont(
                                                         'Helvetica',
                                                         fontSize: 14.5 * ffem,
@@ -681,7 +682,7 @@ class Track extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(10*fem),
-                                          child: Icon(Icons.message,
+                                          child: Icon(MyFlutterApp.vector_3_,
                                             size: 25*fem,
                                             color: Colors.white,
                                           ),
@@ -692,7 +693,7 @@ class Track extends StatelessWidget {
                                             padding: EdgeInsets.fromLTRB(10*fem,25*fem,0*fem,25*fem),
                                             child: RichText(
                                               text: TextSpan(
-                                                text: 'Material loading\n',
+                                                text: 'QR Code\n',
                                                 style: SafeGoogleFont(
                                                   'Helvetica',
                                                   fontSize: 14.5 * ffem,
@@ -702,7 +703,7 @@ class Track extends StatelessWidget {
                                                 ),
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'The material has been loaded',
+                                                      text: 'QR has been placed on the jar',
                                                       style: SafeGoogleFont(
                                                         'Helvetica',
                                                         fontSize: 14.5 * ffem,
@@ -739,7 +740,7 @@ class Track extends StatelessWidget {
                                         ),
                                         child: Padding(
                                           padding: EdgeInsets.all(10*fem),
-                                          child: Icon(Icons.message,
+                                          child: Icon(MyFlutterApp.group_1502,
                                             size: 25*fem,
                                             color: Colors.white,
                                           ),
@@ -750,7 +751,7 @@ class Track extends StatelessWidget {
                                             padding: EdgeInsets.fromLTRB(10*fem,25*fem,0*fem,25*fem),
                                             child: RichText(
                                               text: TextSpan(
-                                                text: 'Material loading\n',
+                                                text: 'Dispached\n',
                                                 style: SafeGoogleFont(
                                                   'Helvetica',
                                                   fontSize: 14.5 * ffem,
@@ -760,7 +761,7 @@ class Track extends StatelessWidget {
                                                 ),
                                                 children: <TextSpan>[
                                                   TextSpan(
-                                                      text: 'The material has been loaded',
+                                                      text: 'The material has been dispatched',
                                                       style: SafeGoogleFont(
                                                         'Helvetica',
                                                         fontSize: 14.5 * ffem,
