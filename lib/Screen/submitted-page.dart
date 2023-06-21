@@ -6,6 +6,10 @@ import 'order-page.dart';
 import 'track-page.dart';
 
 class Submit extends StatelessWidget {
+  String name="", docid="";
+
+  Submit({required this.name, required this.docid});
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
@@ -119,7 +123,7 @@ class Submit extends StatelessWidget {
                             maxWidth: 265 * fem,
                           ),
                           child: Text(
-                            'Hi Jon Doe,\n\nThank you for choosing Twyn! Your order has been received and is now being processed. \n\nPlease use the oder ID below to track your order.',
+                            'Hi ${name},\n\nThank you for choosing Twyn! Your order has been received and is now being processed. \n\nPlease use the oder ID below to track your order.',
                             style: SafeGoogleFont(
                               'Helvetica',
                               fontSize: 15 * ffem,
@@ -163,7 +167,7 @@ class Submit extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              documentId,
+                              '${docid}',
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'Helvetica',
