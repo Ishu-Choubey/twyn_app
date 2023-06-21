@@ -3,6 +3,8 @@ import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 const List<String> citylist = <String>['Kolkata', 'New Delhi', 'Bangalore', 'Pune', 'Hyderabad'];
 
@@ -24,6 +26,11 @@ class _OrderState extends State<Order> {
   dynamic weight2 = FontWeight.w500;
   dynamic weight3 = FontWeight.w500;
   double v = 100.0;
+  final nameController=TextEditingController();
+  String materialcolor='';
+  double quantity=0;
+  String city='';
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
@@ -185,6 +192,7 @@ class _OrderState extends State<Order> {
                                           ),
                                         ]),
                                     child: TextField(
+                                      controller: nameController,
                                       decoration: InputDecoration(
                                         contentPadding: EdgeInsets.fromLTRB(
                                             15.0, 5.0, 5.0, 10.0),
@@ -275,6 +283,7 @@ class _OrderState extends State<Order> {
                                                   ),
                                                   child: MaterialButton(onPressed: () {
                                                     setState(() {
+                                                      materialcolor='Red';
                                                       _color1 = Color(0xfffaa5a5);
                                                       _color2 = Color(0xfffafafa);
                                                       _color3 = Color(0xfffafafa);
@@ -326,6 +335,7 @@ class _OrderState extends State<Order> {
                                                     ),
                                                     child: MaterialButton(onPressed: () {
                                                       setState(() {
+                                                        materialcolor='Pink';
                                                         _color1 = Color(0xfffafafa);
                                                         _color2 = Color(0xffeaa5bf);
                                                         _color3 = Color(0xfffafafa);
@@ -377,6 +387,7 @@ class _OrderState extends State<Order> {
                                                     ),
                                                     child: MaterialButton(onPressed: () {
                                                       setState(() {
+                                                        materialcolor='Yellow';
                                                         _color1 = Color(0xfffafafa);
                                                         _color2 = Color(0xfffafafa);
                                                         _color3 = Color(0xffffe8b5);
@@ -487,7 +498,10 @@ class _OrderState extends State<Order> {
                                                 enableTooltip: true,
                                                 //showDividers: true,
                                                 //minorTicksPerInterval: 1,
-                                                onChanged: (value) => setState(()=>this.v = value),
+                                                onChanged: (value) => setState((){
+                                                  this.v = value;
+                                                  quantity=value;
+                                                }),
                                               ),
                                             ),
                                           ),
@@ -573,7 +587,7 @@ class _OrderState extends State<Order> {
                                                         isExpanded = false ;
                                                         selectedValue = e ;
                                                         setState(() {
-
+                                                          city=e;
                                                         });
                                                       },
                                                       child: Container(
@@ -612,9 +626,18 @@ class _OrderState extends State<Order> {
                               margin: EdgeInsets.fromLTRB(
                                   31 * fem, 20 * fem, 31 * fem, 0 * fem),
                               child: TextButton(
-                                onPressed: () => {
+                                onPressed: () {
+                                  CollectionReference collRef = FirebaseFirestore.instance.collection('client');
+                                  collRef.add({
+                                    'name':nameController.text,
+                                    'color': materialcolor,
+                                    'quantity': quantity,
+                                    'city': city,
+                                  });
+                                  String documentId = collRef.id;
+                                  print(documentId);
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Submit())),
+                                      builder: (context) => Submit()));
                                 },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
