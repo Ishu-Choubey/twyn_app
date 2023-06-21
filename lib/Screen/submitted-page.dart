@@ -163,7 +163,7 @@ class Submit extends StatelessWidget {
                           ),
                           child: Center(
                             child: Text(
-                              'FTS_RD_200_000001',
+                              documentId,
                               textAlign: TextAlign.center,
                               style: SafeGoogleFont(
                                 'Helvetica',

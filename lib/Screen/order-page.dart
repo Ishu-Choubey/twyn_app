@@ -26,6 +26,7 @@ class _OrderState extends State<Order> {
   dynamic weight2 = FontWeight.w500;
   dynamic weight3 = FontWeight.w500;
   double v = 100.0;
+  static String documentId = "";
   final nameController=TextEditingController();
   String materialcolor='';
   double quantity=0;
@@ -626,16 +627,14 @@ class _OrderState extends State<Order> {
                               margin: EdgeInsets.fromLTRB(
                                   31 * fem, 20 * fem, 31 * fem, 0 * fem),
                               child: TextButton(
-                                onPressed: () {
-                                  CollectionReference collRef = FirebaseFirestore.instance.collection('client');
+                                onPressed: () async {
+                                  CollectionReference collRef = await FirebaseFirestore.instance.collection('client');
                                   collRef.add({
                                     'name':nameController.text,
                                     'color': materialcolor,
                                     'quantity': quantity,
                                     'city': city,
-                                  });
-                                  String documentId = collRef.id;
-                                  print(documentId);
+                                  }).then((DocumentReference doc){documentId=doc.id;});
                                   Navigator.of(context).push(MaterialPageRoute(
                                       builder: (context) => Submit()));
                                 },
