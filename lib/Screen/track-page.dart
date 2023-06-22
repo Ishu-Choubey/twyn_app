@@ -9,6 +9,10 @@ import 'package:timeline_tile/timeline_tile.dart';
 import 'package:twyn_app/my_flutter_app_icons.dart';
 
 class Track extends StatelessWidget {
+  String name_="",color_="",quantity_="",status_="";
+
+  Track( this.name_, this.color_, this.quantity_);
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
@@ -188,7 +192,7 @@ class Track extends StatelessWidget {
                                 ),),
                                 Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
                                     child: Text(
-                                        "Yui",
+                                        "${name}",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -221,7 +225,7 @@ class Track extends StatelessWidget {
                                     ),
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
-                                    child: Text("Red",
+                                    child: Text("${color}",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -253,7 +257,7 @@ class Track extends StatelessWidget {
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(
                                     20 * fem, 10 * fem, 15 * fem, 10 * fem),
-                                    child: Text("200gm",
+                                    child: Text("${quantity}gm",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
