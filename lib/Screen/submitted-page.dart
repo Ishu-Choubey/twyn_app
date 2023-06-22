@@ -6,9 +6,9 @@ import 'order-page.dart';
 import 'track-page.dart';
 
 class Submit extends StatelessWidget {
-  String name, docid, color, quantity;
-
-  Submit({required this.name, required this.docid, required this.color, required this.quantity});
+  String name, docid, color;
+  double Quantity;
+  Submit({required this.name, required this.docid, required this.color, required this.Quantity});
 
   @override
   Widget build(BuildContext context) {
@@ -226,7 +226,7 @@ class Submit extends StatelessWidget {
                           margin: EdgeInsets.fromLTRB(
                               31 * fem, 0 * fem, 31 * fem, 0 * fem),
                           child: TextButton(
-                            onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track(name_: name,color_: color,quantity_: ))),},
+                            onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track(name_: name,color_: color,quantity_: Quantity))),},
                             style: TextButton.styleFrom(
                               padding: EdgeInsets.zero,
                             ),

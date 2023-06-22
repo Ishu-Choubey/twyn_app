@@ -636,7 +636,7 @@ class _OrderState extends State<Order> {
                                     'city': city,
                                   }).then((DocumentReference doc){documentId=doc.id;});
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Submit(name: nameController.text,docid: documentId)));
+                                      builder: (context) => Submit(name: nameController.text,docid: documentId, color: materialcolor, Quantity: quantity)));
                                 },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,

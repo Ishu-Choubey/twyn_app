@@ -9,9 +9,9 @@ import 'package:timeline_tile/timeline_tile.dart';
 import 'package:twyn_app/my_flutter_app_icons.dart';
 
 class Track extends StatelessWidget {
-  String name_="",color_="",quantity_="",status_="";
-
-  Track( this.name_, this.color_, this.quantity_);
+  String name_="",color_="",status_="";
+  double quantity_;
+  Track({required this.name_, required this.color_, required this.quantity_});
 
   @override
   Widget build(BuildContext context) {
@@ -192,7 +192,7 @@ class Track extends StatelessWidget {
                                 ),),
                                 Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
                                     child: Text(
-                                        "${name}",
+                                        "${name_}",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -225,7 +225,7 @@ class Track extends StatelessWidget {
                                     ),
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
-                                    child: Text("${color}",
+                                    child: Text("${color_}",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -257,7 +257,7 @@ class Track extends StatelessWidget {
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(
                                     20 * fem, 10 * fem, 15 * fem, 10 * fem),
-                                    child: Text("${quantity}gm",
+                                    child: Text("${quantity_}gm",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,

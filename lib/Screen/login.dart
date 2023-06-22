@@ -155,7 +155,7 @@ class LoginPage extends StatelessWidget {
                               left: 94 * fem,
                               top: 575 * fem,
                               child: TextButton(
-                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track())),},
+                                onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track(name_: "name",color_: "color",quantity_: 500))),},
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),
