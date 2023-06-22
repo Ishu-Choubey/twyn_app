@@ -25,7 +25,6 @@ class _OrderState extends State<Order> {
   dynamic weight2 = FontWeight.w500;
   dynamic weight3 = FontWeight.w500;
   double v = 100.0;
-  String documentId = "";
   final nameController=TextEditingController();
   String materialcolor='';
   double quantity=0;
@@ -635,9 +634,11 @@ class _OrderState extends State<Order> {
                                     'color': materialcolor,
                                     'quantity': quantity,
                                     'city': city,
-                                  }).then((DocumentReference doc){documentId=doc.id;});
+                                  }).then((DocumentReference doc){
                                   Navigator.of(context).push(MaterialPageRoute(
-                                      builder: (context) => Submit(name: nameController.text,docid: documentId, color: materialcolor, Quantity: quantity)));
+                                      builder: (context) => Submit(name: nameController.text,docid: doc.id, color: materialcolor, Quantity: quantity)));
+                                  });
+
                                 },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
