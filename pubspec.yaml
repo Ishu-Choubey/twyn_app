@@ -72,14 +72,10 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
 
-    - images/twynw.png
-    - images/bg.png
     - images/l1.png
     - images/l2.png
-    - images/twyn-logo-color-1-bg.png
     - images/twyn-logo-color-2.png
     - images/mask-group.png
-    - images/pinkog.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -103,7 +103,7 @@ class LoginPage extends StatelessWidget {
                                   width: 322.63 * fem,
                                   height: 115 * fem,
                                   child: Image.asset(
-                                    'images/twynw.png',
+                                    'images/twyn-logo-color-2.png',
                                     fit: BoxFit.cover,
                                   ),
                                 ),
