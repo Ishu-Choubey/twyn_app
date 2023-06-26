@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:twyn_app/Screen/login.dart';
 import 'package:twyn_app/utils.dart';
 import 'loginpage.dart';
+import 'package:twyn_app/functions/authFunctions.dart';
 
 class Signuppage extends StatefulWidget {
   @override
@@ -116,7 +117,9 @@ class _SignuppageState extends State<Signuppage> {
                           maxWidth: 265 * fem,
                         ),
                         child: Text(
-                          'Thank You for connecting with us. Please Enter your details:',
+                          !login?
+                          'Thank You for connecting with us. Please Enter your details:':
+                              'Please enter your login credentials',
                           style: SafeGoogleFont(
                             'Helvetica',
                             fontSize: 14 * ffem,
@@ -327,9 +330,8 @@ class _SignuppageState extends State<Signuppage> {
                                 margin: EdgeInsets.fromLTRB(
                                     31 * fem, 0 * fem, 31 * fem, 0 * fem),
                                 child: TextButton(
-                                  onPressed: () => {
-                                    Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => Login())),
+                                  onPressed: () {
+                                    signupUser(gmailcont.text, passcont.text, namecont.text, phonenocont.text, context);
                                   },
                                   style: TextButton.styleFrom(
                                     padding: EdgeInsets.zero,
@@ -357,7 +359,8 @@ class _SignuppageState extends State<Signuppage> {
                                       child: Center(
                                         child: Center(
                                           child: Text(
-                                            'Sign up',
+                                            !login?
+                                            'Sign up': 'Login',
                                             textAlign: TextAlign.center,
                                             style: SafeGoogleFont(
                                               'Helvetica',
@@ -383,7 +386,8 @@ class _SignuppageState extends State<Signuppage> {
                                   Container(
                                     //width: double.infinity,
                                     child: Text(
-                                      'Already have an account?',
+                                      !login?
+                                      'Already have an account?':'New to Twyn?',
                                       // textAlign: TextAlign.center,
                                       style: SafeGoogleFont(
                                         'Helvetica',
@@ -403,13 +407,13 @@ class _SignuppageState extends State<Signuppage> {
                                             0 * fem, 0 * fem, 0 * fem, 0 * fem),
                                       ),
                                       onPressed: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    LoginPage()));
+                                        setState(() {
+                                          login=!login;
+                                        });
                                       },
                                       child: Text(
-                                        'Login!',
+                                        !login?
+                                        'Login!':'Create Account!',
                                         textAlign: TextAlign.left,
                                         style: SafeGoogleFont(
                                           'Helvetica',

@@ -6,6 +6,7 @@ import 'utils.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import './Screen/signup-page.dart';
 
 void main() async
 {
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget
           if(snapshot.hasData)
             return Login();
           else
-            return LoginPage();
+            return Signuppage();
         },
       ) //entering login page
     );
