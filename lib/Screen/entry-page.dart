@@ -6,7 +6,7 @@ import 'submitted-page.dart';
 import 'track-page.dart';
 import 'track-id.dart';
 
-class Login extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double baseWidth = 430;
@@ -130,7 +130,7 @@ class Login extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: Color(0xff2C0031),
                                       borderRadius:
-                                          BorderRadius.circular(30 * fem),
+                                      BorderRadius.circular(30 * fem),
                                     ),
                                     child: Center(
                                       child: Center(
@@ -172,7 +172,7 @@ class Login extends StatelessWidget {
                                     decoration: BoxDecoration(
                                       color: Color(0xff2C0031),
                                       borderRadius:
-                                          BorderRadius.circular(30 * fem),
+                                      BorderRadius.circular(30 * fem),
                                     ),
                                     child: Center(
                                       child: Center(
