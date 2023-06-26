@@ -5,16 +5,32 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
 import 'order-page.dart';
 import 'track-page.dart';
+import 'login.dart';
 
-class trackid extends StatelessWidget {
-  int c=0;
+class trackid extends StatefulWidget {
+  @override
+  State<trackid> createState() => _trackidState();
+}
+
+class _trackidState extends State<trackid> {
+  int errorname=0;
+
   final docid=TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     double baseWidth = 450;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginPage())),},
+        backgroundColor: Color(0xff4D1354),
+        child: Icon(
+          Icons.home_rounded,
+          size: 40*fem,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
@@ -134,7 +150,7 @@ class trackid extends StatelessWidget {
                           ), //enter container
                           Container(
                             margin: EdgeInsets.fromLTRB(
-                                15 * fem, 0 * fem, 8 * fem, 10 * fem),
+                                15 * fem, 0 * fem, 8 * fem, 7 * fem),
                             width: double.infinity,
                             child: Container(
                               width: double.infinity,
@@ -177,7 +193,23 @@ class trackid extends StatelessWidget {
                               ),
                             ),
                           ), //text box
-                        ]),
+                          Container(
+                            margin: EdgeInsets.fromLTRB(
+                                25 * fem, 0 * fem, 0 * fem, 17 * fem),
+                            width: double.infinity,
+                            child: Text(
+                              'Please Enter A Valid Tracking ID',
+                              style: SafeGoogleFont(
+                                'Helvetica',
+                                fontSize: errorname * ffem,
+                                fontWeight: FontWeight.w600,
+                                height: 1.25 * ffem / fem,
+                                color: Colors.red,
+                              ),
+                            ),
+                          ),
+                        ]
+                    ),
                   ),
                   Container(
                     // trackLrJ (18:31)
@@ -186,6 +218,7 @@ class trackid extends StatelessWidget {
                     child: TextButton(
                       onPressed: () async {
                         if (docid.text!.isNotEmpty){
+                          errorname=0;
                           DocumentSnapshot ds;
                           await FirebaseFirestore.instance
                               .collection('client')
@@ -193,7 +226,7 @@ class trackid extends StatelessWidget {
                           .get()
                           .then((value) {
                             if(value.exists) {
-                              c=1;
+                              errorname=0;
                               ds = value;
                               Navigator.of(context).push(
                                   MaterialPageRoute(
@@ -205,62 +238,20 @@ class trackid extends StatelessWidget {
                                   )
                               );
                             }
+                            else
+                              {
+                                setState(() {
+                                  errorname=12;
+                                });
+                              }
                           } // then
                           );//collref closed
                         }//if closed
-                        if(c==0)
+                        else
                         {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(
-                                content: Container(
-                                  height: 100*fem,
-                                  decoration: BoxDecoration(
-                                      color: Color(0x90000000),
-                                      borderRadius: BorderRadius.all(Radius.circular(45*fem))
-                                  ),
-                                  child:Row(
-                                    children: [
-                                      SizedBox(width: 48*fem),
-                                      Expanded(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsets.fromLTRB(50*fem, 25*fem, 50*fem, 0*fem),
-                                              child: Text(
-                                                "Alert!!!",
-                                                textAlign: TextAlign.center
-                                                ,style: SafeGoogleFont(
-                                                'Helvetica',
-                                                fontSize: 15 * ffem,
-                                                fontWeight: FontWeight.w600,
-                                                height: 1.2575 * ffem / fem,
-                                                color: Color(0xfff6f4f4),
-                                              ),),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsets.fromLTRB(50*fem, 8*fem, 50*fem, 20*fem),
-                                              child: Text('Please enter valid Order ID',
-                                                textAlign: TextAlign.center,
-                                                style: SafeGoogleFont(
-                                                'Helvetica',
-                                                fontSize: 15 * ffem,
-                                                fontWeight: FontWeight.w500,
-                                                height: 1.2575 * ffem / fem,
-                                                color: Color(0xfff6f4f4),
-                                              ),),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                behavior: SnackBarBehavior.floating,
-                                backgroundColor: Colors.transparent,
-                                elevation: 0,
-                              )
-                          );
+                          setState(() {
+                            errorname=12;
+                          });
                         }
                       },
                       style: TextButton.styleFrom(

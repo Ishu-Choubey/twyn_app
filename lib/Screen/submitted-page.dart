@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
 import 'order-page.dart';
 import 'track-page.dart';
+import 'login.dart';
 
 class Submit extends StatelessWidget {
   String name, docid, color;
@@ -16,6 +17,14 @@ class Submit extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginPage())),},
+        backgroundColor: Color(0xff4D1354),
+        child: Icon(
+          Icons.home_rounded,
+          size: 40*fem,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,

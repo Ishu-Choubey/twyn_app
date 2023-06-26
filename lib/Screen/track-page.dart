@@ -1,3 +1,4 @@
+import 'login.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,6 +20,14 @@ class Track extends StatelessWidget {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginPage())),},
+        backgroundColor: Color(0xff4D1354),
+        child: Icon(
+          Icons.home_rounded,
+          size: 40*fem,
+        ),
+      ),
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,

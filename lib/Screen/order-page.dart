@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twyn_app/Screen/login.dart';
 import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
@@ -1053,9 +1054,10 @@ class _OrderState extends State<Order> {
   String documentId = "";
   final nameController = TextEditingController();
   String materialcolor = '';
-  double quantity = 0;
+  double quantity = 100;
   String city = '';
   int drop = 0, col = 0;
+  int errorname=0, errorcolor=0, errorcity=0;
   final formKey = GlobalKey<FormState>();
 
   @override
@@ -1064,6 +1066,14 @@ class _OrderState extends State<Order> {
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> LoginPage())),},
+        backgroundColor: Color(0xff4D1354),
+        child: Icon(
+            Icons.home_rounded,
+                size: 40*fem,
+        ),
+      ),
       body: ScrollConfiguration(
         behavior: ScrollBehavior(),
         child: SingleChildScrollView(
@@ -1188,7 +1198,7 @@ class _OrderState extends State<Order> {
                             children: [
                               Container(
                                 margin: EdgeInsets.fromLTRB(
-                                    4 * fem, 0 * fem, 4 * fem, 20 * fem),
+                                    4 * fem, 0 * fem, 4 * fem, 7 * fem),
                                 width: double.infinity,
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1211,7 +1221,7 @@ class _OrderState extends State<Order> {
                                     Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
-                                          color: Color(0xfffafafa),
+                                          color: Color(0xffF6F6F6),
                                           borderRadius:
                                               BorderRadius.circular(33 * fem),
                                           boxShadow: [
@@ -1245,23 +1255,31 @@ class _OrderState extends State<Order> {
                                           height: 1.25 * ffem / fem,
                                           color: Color(0xff545252),
                                         ),
-                                        // validator: (value) {
-                                        //   if (value!.isEmpty ||
-                                        //       RegExp(r'^[a-z A-Z]+$')
-                                        //           .hasMatch(value!))
-                                        //     return null;
-                                        //   else
-                                        //     return null;
-                                        // },
                                       ),
                                     ),
                                   ],
                                 ),
-                              ), //Name Container
+                              ),
+                              Container(
+                                margin: EdgeInsets.fromLTRB(
+                                    10 * fem, 0 * fem, 0 * fem, 17 * fem),
+                                width: double.infinity,
+                                child: Text(
+                                  'Please Enter A Valid Name',
+                                  textAlign: TextAlign.left,
+                                  style: SafeGoogleFont(
+                                    'Helvetica',
+                                    fontSize: errorname * ffem,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.25 * ffem / fem,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ),//Name Container
                               Container(
                                 //Product colour box
                                 margin: EdgeInsets.fromLTRB(
-                                    4 * fem, 0 * fem, 4 * fem, 20 * fem),
+                                    4 * fem, 0 * fem, 4 * fem, 7 * fem),
                                 width: double.infinity,
                                 child: Column(
                                     crossAxisAlignment:
@@ -1515,6 +1533,22 @@ class _OrderState extends State<Order> {
                               ), //Product Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
+                                    10 * fem, 0 * fem, 0 * fem, 17 * fem),
+                                width: double.infinity,
+                                child: Text(
+                                  'Please Enter A Valid Color',
+                                  textAlign: TextAlign.left,
+                                  style: SafeGoogleFont(
+                                    'Helvetica',
+                                    fontSize: errorcolor * ffem,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.25 * ffem / fem,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.fromLTRB(
                                     4 * fem, 0 * fem, 4 * fem, 20 * fem),
                                 width: double.infinity,
                                 child: Column(
@@ -1614,7 +1648,7 @@ class _OrderState extends State<Order> {
                               ), //Slider Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
-                                    4 * fem, 0 * fem, 4 * fem, 10 * fem),
+                                    4 * fem, 0 * fem, 4 * fem, 0 * fem),
                                 width: double.infinity,
                                 child: Column(
                                     crossAxisAlignment:
@@ -1641,7 +1675,7 @@ class _OrderState extends State<Order> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsets.fromLTRB(
-                                                  0, 0, 0, 20 * fem),
+                                                  0, 0, 0, 7 * fem),
                                               child: Container(
                                                 width: double.infinity,
                                                 height: 50 * fem,
@@ -1797,11 +1831,46 @@ class _OrderState extends State<Order> {
                               ),
                               //Delivery Container
                               Container(
+                                margin: EdgeInsets.fromLTRB(
+                                    10 * fem, 10 * fem, 0 * fem, 0 * fem),
+                                width: double.infinity,
+                                child: Text(
+                                  'Please Enter A Valid City',
+                                  textAlign: TextAlign.left,
+                                  style: SafeGoogleFont(
+                                    'Helvetica',
+                                    fontSize: errorcity * ffem,
+                                    fontWeight: FontWeight.w600,
+                                    height: 1.25 * ffem / fem,
+                                    color: Colors.red,
+                                  ),
+                                ),
+                              ),
+                              Container(
                                 // trackLrJ (18:31)
                                 margin: EdgeInsets.fromLTRB(
                                     31 * fem, 20 * fem, 31 * fem, 0 * fem),
                                 child: TextButton(
                                   onPressed: () async {
+                                    if ((nameController.text!.isNotEmpty ||
+                                        RegExp(r'^[a-z A-Z]+$')
+                                            .hasMatch(nameController.text!))) {
+                                      setState(() {
+                                        errorname = 0;
+                                      });
+                                    }
+                                    if (col == 1)
+                                    {
+                                      setState(() {
+                                        errorcolor = 0;
+                                      });
+                                    }
+                                    if (drop == 1)
+                                    {
+                                      setState(() {
+                                        errorcity = 0;
+                                      });
+                                    }
                                     if ((nameController.text!.isNotEmpty ||
                                         RegExp(r'^[a-z A-Z]+$')
                                             .hasMatch(nameController.text!)) && col == 1 && drop==1) {
@@ -1831,57 +1900,23 @@ class _OrderState extends State<Order> {
                                         if(nameController.text.isEmpty &&
                                             !RegExp(r'^[a-z A-Z]+$')
                                                 .hasMatch(nameController.text!))
-                                          {sent='Invalid name';}
+                                          {
+                                            setState(() {
+                                              errorname=12;
+                                            });
+                                          }
                                         else if(col==0)
-                                          {sent='Select the colour please';}
+                                          {
+                                          setState(() {
+                                            errorcolor=12;
+                                          });
+                                          }
                                         else if(drop==0)
-                                          {sent='Select the city';}
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                            SnackBar(
-                                              content: Container(
-                                                height: 100*fem,
-                                                decoration: BoxDecoration(
-                                                  color: Color(0x90000000),
-                                                  borderRadius: BorderRadius.all(Radius.circular(45*fem))
-                                                ),
-                                                child:Row(
-                                                  children: [
-                                                    SizedBox(width: 48*fem),
-                                                    Expanded(
-                                                      child: Column(
-                                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                                        children: [
-                                                          Padding(
-                                                            padding: EdgeInsets.fromLTRB(50*fem, 25*fem, 50*fem, 0*fem),
-                                                            child: Text("Alert!!!", style: SafeGoogleFont(
-                                                              'Helvetica',
-                                                              fontSize: 15 * ffem,
-                                                              fontWeight: FontWeight.w600,
-                                                              height: 1.2575 * ffem / fem,
-                                                              color: Color(0xfff6f4f4),
-                                                            ),),
-                                                          ),
-                                                          Padding(
-                                                            padding: EdgeInsets.fromLTRB(50*fem, 8*fem, 50*fem, 20*fem),
-                                                            child: Text('${sent}', style: SafeGoogleFont(
-                                                              'Helvetica',
-                                                              fontSize: 15 * ffem,
-                                                              fontWeight: FontWeight.w500,
-                                                              height: 1.2575 * ffem / fem,
-                                                              color: Color(0xfff6f4f4),
-                                                            ),),
-                                                          ),
-                                                        ],
-                                                      ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              behavior: SnackBarBehavior.floating,
-                                              backgroundColor: Colors.transparent,
-                                              elevation: 0,
-                                            )
-                                        );
+                                          {
+                                            setState(() {
+                                              errorcity=12;
+                                            });
+                                          }
                                       }
                                   },
                                   style: TextButton.styleFrom(
