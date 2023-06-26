@@ -4,6 +4,7 @@ import 'package:twyn_app/Screen/order-page.dart';
 import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
 import 'track-page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'track-id.dart';
 
 class Login extends StatelessWidget {
@@ -178,6 +179,48 @@ class Login extends StatelessWidget {
                                       child: Center(
                                         child: Text(
                                           'TRACK YOUR ORDER',
+                                          textAlign: TextAlign.center,
+                                          style: SafeGoogleFont(
+                                            'Helvetica',
+                                            fontSize: 17 * ffem,
+                                            fontWeight: FontWeight.w700,
+                                            height: 1.2575 * ffem / fem,
+                                            color: Color(0xffFFDBE8),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            Positioned(
+                              // track7Yq (67:42)
+                              left: 94 * fem,
+                              top: 640 * fem,
+                              child: TextButton(
+                                onPressed:  ()async{ await FirebaseAuth.instance.signOut();},
+                                style: TextButton.styleFrom(
+                                  padding: EdgeInsets.zero,
+                                ),
+                                child: Container(
+                                  padding: EdgeInsets.fromLTRB(
+                                      50 * fem, 10 * fem, 50 * fem, 10 * fem),
+                                  width: 241 * fem,
+                                  height: 75 * fem,
+                                  child: Container(
+                                    // frame11RJd (I67:42;440:2022)
+                                    width: double.infinity,
+                                    height: double.infinity,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xff2C0031),
+                                      borderRadius:
+                                      BorderRadius.circular(30 * fem),
+                                    ),
+                                    child: Center(
+                                      child: Center(
+                                        child: Text(
+                                          'SIGN OUT',
                                           textAlign: TextAlign.center,
                                           style: SafeGoogleFont(
                                             'Helvetica',

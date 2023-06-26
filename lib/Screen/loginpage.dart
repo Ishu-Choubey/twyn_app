@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:twyn_app/Screen/login.dart';
 import 'package:twyn_app/Screen/order-page.dart';
+import 'signup-page.dart';
 import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
 import 'track-page.dart';
@@ -14,6 +15,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final gmailcont = TextEditingController();
   final passcont = TextEditingController();
+  bool login=false;
+  final formKey=GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -190,6 +193,7 @@ class _LoginPageState extends State<LoginPage> {
                                     ),
                                   ]),
                               child: TextField  (
+                                obscureText: true,
                                 controller: passcont,
                                 decoration: InputDecoration(
                                   prefixIcon: Icon(Icons.password, color: Colors.white),
@@ -226,10 +230,10 @@ class _LoginPageState extends State<LoginPage> {
                               height: 45*fem,
                               child: TextButton(
                                 style: TextButton.styleFrom(
-                                  textStyle: TextStyle(fontSize: 14),
+                                  padding: EdgeInsets.fromLTRB(10*fem, 5*fem, 0*fem, 0*fem),
                                   alignment: Alignment.topRight,
                                 ),
-                                onPressed: null,
+                                onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Signuppage()));},
                                 child: Text(
                                   'Forgot password?',
                                   textAlign: TextAlign.end,
@@ -315,16 +319,22 @@ class _LoginPageState extends State<LoginPage> {
                                   ),
                                 ),
                                 Container(
-                                  //width: double.infinity,
-                                  child: Text(
-                                    'Create Account!',
-                                    //textAlign: TextAlign.center,
-                                    style: SafeGoogleFont(
-                                      'Helvetica',
-                                      fontSize: 14 * ffem,
-                                      fontWeight: FontWeight.w700,
-                                      height: 1.2575 * ffem / fem,
-                                      color: Color(0xff541655),
+                                  height: 20*fem,
+                                  child: TextButton(
+                                    style: TextButton.styleFrom(
+                                      padding: EdgeInsets.fromLTRB(5*fem, 0*fem, 0*fem, 0*fem),
+                                    ),
+                                    onPressed: (){Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Signuppage()));},
+                                    child: Text(
+                                      'Create Account!',
+                                      //textAlign: TextAlign.center,
+                                      style: SafeGoogleFont(
+                                        'Helvetica',
+                                        fontSize: 14 * ffem,
+                                        fontWeight: FontWeight.w700,
+                                        height: 1.2575 * ffem / fem,
+                                        color: Color(0xff541655),
+                                      ),
                                     ),
                                   ),
                                 ),

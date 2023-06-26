@@ -1053,6 +1053,7 @@ class _OrderState extends State<Order> {
   double v = 100.0;
   String documentId = "";
   final nameController = TextEditingController();
+  final searchcont= TextEditingController();
   String materialcolor = '';
   double quantity = 100;
   String city = '';
@@ -1259,7 +1260,7 @@ class _OrderState extends State<Order> {
                                     ),
                                   ],
                                 ),
-                              ),
+                              ),//Name Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
                                     10 * fem, 0 * fem, 0 * fem, 17 * fem),
@@ -1275,7 +1276,7 @@ class _OrderState extends State<Order> {
                                     color: Colors.red,
                                   ),
                                 ),
-                              ),//Name Container
+                              ),//Name error Container
                               Container(
                                 //Product colour box
                                 margin: EdgeInsets.fromLTRB(
@@ -1530,7 +1531,7 @@ class _OrderState extends State<Order> {
                                         ),
                                       )
                                     ]),
-                              ), //Product Container
+                              ),//Product Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
                                     10 * fem, 0 * fem, 0 * fem, 17 * fem),
@@ -1546,7 +1547,7 @@ class _OrderState extends State<Order> {
                                     color: Colors.red,
                                   ),
                                 ),
-                              ),
+                              ),//Product error Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
                                     4 * fem, 0 * fem, 4 * fem, 20 * fem),
@@ -1645,7 +1646,7 @@ class _OrderState extends State<Order> {
                                     ),
                                   ],
                                 ),
-                              ), //Slider Container
+                              ),//Slider Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
                                     4 * fem, 0 * fem, 4 * fem, 0 * fem),
@@ -1828,8 +1829,7 @@ class _OrderState extends State<Order> {
                                         ),
                                       )
                                     ]),
-                              ),
-                              //Delivery Container
+                              ),//Delivery Container
                               Container(
                                 margin: EdgeInsets.fromLTRB(
                                     10 * fem, 10 * fem, 0 * fem, 0 * fem),
@@ -1845,7 +1845,7 @@ class _OrderState extends State<Order> {
                                     color: Colors.red,
                                   ),
                                 ),
-                              ),
+                              ),//Delivery error Container
                               Container(
                                 // trackLrJ (18:31)
                                 margin: EdgeInsets.fromLTRB(
