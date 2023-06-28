@@ -6,6 +6,7 @@ import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:syncfusion_flutter_core/theme.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:twyn_app/functions/firebaseFunction.dart';
 
 const List<String> citylist = <String>[
   'Abdul',
@@ -1874,14 +1875,13 @@ class _OrderState extends State<Order> {
                                     if ((nameController.text!.isNotEmpty ||
                                         RegExp(r'^[a-z A-Z]+$')
                                             .hasMatch(nameController.text!)) && col == 1 && drop==1) {
-                                      CollectionReference collRef =
-                                          await FirebaseFirestore.instance
-                                              .collection('client');
+                                      DocumentReference docref=FirebaseFirestore.instance.collection('users').doc('${docid}');
+                                      CollectionReference collRef =docref.collection('orders');
                                       collRef.add({
-                                        'name': nameController.text,
-                                        'color': materialcolor,
-                                        'quantity': quantity,
-                                        'city': city,
+                                          'name': nameController.text,
+                                          'color': materialcolor,
+                                          'quantity': quantity,
+                                          'city': city,
                                       }).then((DocumentReference doc) {
                                         Navigator.of(context).push(
                                             MaterialPageRoute(

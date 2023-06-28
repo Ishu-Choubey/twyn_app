@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/Screen/order-page.dart';
+import 'package:twyn_app/Screen/signup-page.dart';
 import 'package:twyn_app/utils.dart';
 import 'submitted-page.dart';
 import 'track-page.dart';
@@ -199,7 +200,9 @@ class Login extends StatelessWidget {
                               left: 94 * fem,
                               top: 640 * fem,
                               child: TextButton(
-                                onPressed:  ()async{ await FirebaseAuth.instance.signOut();},
+                                onPressed:  ()async{ await FirebaseAuth.instance.signOut();
+                                //Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Signuppage()));
+                                },
                                 style: TextButton.styleFrom(
                                   padding: EdgeInsets.zero,
                                 ),

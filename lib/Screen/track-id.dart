@@ -6,6 +6,8 @@ import 'package:twyn_app/utils.dart';
 import 'order-page.dart';
 import 'track-page.dart';
 import 'login.dart';
+import 'package:twyn_app/functions/firebaseFunction.dart';
+import 'package:toggle_switch/toggle_switch.dart';
 
 class trackid extends StatefulWidget {
   @override
@@ -14,8 +16,18 @@ class trackid extends StatefulWidget {
 
 class _trackidState extends State<trackid> {
   int errorname=0;
-
-  final docid=TextEditingController();
+  bool show=false;
+  int initialLabelIndex = 0;
+  String allID='';
+  final docId=TextEditingController();
+  // getalltrackID() async
+  // {
+  //   QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('users').doc('${docid}').collection("orders").get();
+  //   for (int i = 0; i < querySnapshot.docs.length; i++) {
+  //     var a = querySnapshot.docs[i];
+  //     print(a.id);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +67,7 @@ class _trackidState extends State<trackid> {
                   Container(
                     // headingCsG (18:51)
                     margin: EdgeInsets.fromLTRB(
-                        0 * fem, 0 * fem, 0 * fem, 60 * fem),
+                        0 * fem, 0 * fem, 0 * fem, 50 * fem),
                     width: double.infinity,
                     height: 222 * fem,
                     decoration: BoxDecoration(
@@ -109,6 +121,42 @@ class _trackidState extends State<trackid> {
                       ],
                     ),
                   ),
+                  ToggleSwitch(
+                    minWidth: 150.0*fem,
+                    cornerRadius: 20.0*fem,
+                    activeBgColors: [[Color(0xff4D1354)!], [Color(0xff4D1354)!]],
+                    activeFgColor: Colors.white,
+                    inactiveBgColor: Color(0xffb43f67),
+                    inactiveFgColor: Colors.white,
+                    initialLabelIndex: initialLabelIndex,
+                    totalSwitches: 2,
+                    labels: ['Track Order', 'Previous Orders'],
+                    customTextStyles: [
+                      SafeGoogleFont(
+                        'Helvetica',
+                        fontSize: 16 * ffem,
+                        fontWeight: FontWeight.w800,
+                        height: 1.2575 * ffem / fem,
+                        color: Color(0xfff6f4f4),
+                      ),
+                      SafeGoogleFont(
+                        'Helvetica',
+                        fontSize: 16 * ffem,
+                        fontWeight: FontWeight.w800,
+                        height: 1.2575 * ffem / fem,
+                        color: Color(0xfff6f4f4),
+                      ),
+                    ],
+                    radiusStyle: true,
+                    onToggle: (index) {
+                      setState(
+                              (){
+                            initialLabelIndex = index!;
+                          });
+                    },
+                  ),
+                  initialLabelIndex==0? Column(
+                    children: [
                   Container(
                     // autogroupdwrniWA (Xp2uW5Bq3bTJBt4wBzDwrn)
                     margin: EdgeInsets.fromLTRB(
@@ -166,7 +214,7 @@ class _trackidState extends State<trackid> {
                                     ),
                                   ]),
                               child: TextFormField(
-                                controller: docid,
+                                controller: docId,
                                 textAlign: TextAlign.center,
                                 decoration: InputDecoration(
                                   contentPadding: EdgeInsets.fromLTRB(
@@ -217,12 +265,12 @@ class _trackidState extends State<trackid> {
                         130 * fem, 0 * fem, 130 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () async {
-                        if (docid.text!.isNotEmpty){
+                        if (docId.text!.isNotEmpty){
                           errorname=0;
                           DocumentSnapshot ds;
-                          await FirebaseFirestore.instance
-                              .collection('client')
-                          .doc(docid.text)
+                          DocumentReference docref= await FirebaseFirestore.instance.collection('users').doc('${docid}');
+                          CollectionReference collRef =docref.collection('orders');
+                          collRef.doc(docId.text)
                           .get()
                           .then((value) {
                             if(value.exists) {
@@ -289,6 +337,98 @@ class _trackidState extends State<trackid> {
                       ),
                     ),
                   ), //track button
+                  ])
+                  :Container(
+                    // autogroupdwrniWA (Xp2uW5Bq3bTJBt4wBzDwrn)
+                    margin: EdgeInsets.fromLTRB(
+                        45 * fem, 95 * fem, 45 * fem, 35 * fem),
+                    padding: EdgeInsets.fromLTRB(
+                        30 * fem, 55 * fem, 30 * fem, 55 * fem),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Color(0xfffafafa),
+                      borderRadius: BorderRadius.circular(33 * fem),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(0x26000000),
+                          offset: Offset(7 * fem, 6 * fem),
+                          blurRadius: 6 * fem,
+                        ),
+                      ],
+                    ),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            // order id enter
+                            margin: EdgeInsets.fromLTRB(
+                                0 * fem, 0 * fem, 0 * fem, 20 * fem),
+                            constraints: BoxConstraints(
+                              maxWidth: 265 * fem,
+                            ),
+                            child: TextButton(
+                              onPressed: () async {
+                                if(allID=='') {
+                                  QuerySnapshot querySnapshot = await FirebaseFirestore
+                                      .instance.collection('users').doc(
+                                      '${docid}').collection("orders").get();
+                                  for (int i = 0; i <
+                                      querySnapshot.docs.length; i++) {
+                                    var a = querySnapshot.docs[i];
+                                    setState(() {
+                                      allID = '\n' + a.id + allID;
+                                    });
+                                  }
+                                }
+                              },
+                              child: Text(
+                                "Previous Order's Track IDs",
+                                style: SafeGoogleFont(
+                                  'Helvetica',
+                                  fontSize: 18 * ffem,
+                                  fontWeight: FontWeight.w600,
+                                  height: 1.2575 * ffem / fem,
+                                  color: Color(0xff7c7979),
+                                ),
+                              ),
+                            ),
+                          ), //enter container
+                          Container(
+                            margin: EdgeInsets.fromLTRB(
+                                15 * fem, 0 * fem, 8 * fem, 7 * fem),
+                            width: double.infinity,
+                            child: Container(
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Color(0xffF6F6F6),
+                                  borderRadius:
+                                  BorderRadius.circular(33 * fem),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x120000000),
+                                      offset: Offset(7 * fem, 6 * fem),
+                                      blurRadius: 6 * fem,
+                                    ),
+                                  ]),
+                              child: Padding(
+                                padding: EdgeInsets.fromLTRB(8.0*fem, 0*fem,8*fem,20*fem),
+                                child: SelectableText(
+                                  textAlign: TextAlign.center,
+                                  '${allID}',
+                                  style: SafeGoogleFont(
+                                    'Helvetica',
+                                    fontSize: 17 * ffem,
+                                    fontWeight: FontWeight.w500,
+                                    height: 1.25 * ffem / fem,
+                                    color: Color(0xff545252),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ), //text box
+                        ]
+                    ),
+                  ),
                 ],
               ),
             ),
