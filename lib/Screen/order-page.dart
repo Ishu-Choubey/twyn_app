@@ -1815,8 +1815,8 @@ class _OrderState extends State<Order> {
                                                               isExpanded =
                                                                   false;
                                                              selectedValue=e;
-                                                              if(selectedValue!='choose your city ')// && cityID.text!=null)
-                                                                {drop=1;}
+                                                              // if(selectedValue!='choose your city ')// && cityID.text!=null)
+                                                              //   {drop=1;}
                                                               setState(() {
                                                                 cityID.text=e;
                                                                 city = e;
@@ -1919,7 +1919,7 @@ class _OrderState extends State<Order> {
                                     }
                                     if ((nameController.text!.isNotEmpty ||
                                         RegExp(r'^[a-z A-Z]+$')
-                                            .hasMatch(nameController.text!)) && col == 1 && drop==1) {
+                                            .hasMatch(nameController.text!)) && col == 1 && citylist.indexOf(cityID.text)!=-1) {
                                       DocumentReference docref=FirebaseFirestore.instance.collection('users').doc('${docid}');
                                       CollectionReference collRef =docref.collection('orders');
                                       collRef.add({
@@ -1956,7 +1956,7 @@ class _OrderState extends State<Order> {
                                             errorcolor=12;
                                           });
                                           }
-                                        else if(drop==0)
+                                        else if(citylist.indexOf(cityID.text)==-1)
                                           {
                                             setState(() {
                                               errorcity=12;
