@@ -1032,6 +1032,8 @@ const List<String> citylist = <String>[
   'Yeola',
   'Yercaud'
 ];
+List<String> filtercitylist = citylist;
+
 
 class Order extends StatefulWidget {
   @override
@@ -1054,6 +1056,7 @@ class _OrderState extends State<Order> {
   double v = 100.0;
   String documentId = "";
   final nameController = TextEditingController();
+  final cityID = TextEditingController();
   final searchcont= TextEditingController();
   String materialcolor = '';
   double quantity = 100;
@@ -1061,6 +1064,12 @@ class _OrderState extends State<Order> {
   int drop = 0, col = 0;
   int errorname=0, errorcolor=0, errorcity=0;
   final formKey = GlobalKey<FormState>();
+  void _filtercity(value){
+    setState(() {
+      filtercitylist=citylist
+          .where((element) => element.toLowerCase().contains(value.toLowerCase()),).toList();
+    });
+}
 
   @override
   Widget build(BuildContext context) {
@@ -1717,28 +1726,62 @@ class _OrderState extends State<Order> {
                                                                   .spaceBetween,
                                                           children: [
                                                             Expanded(
-                                                              child: Text(
-                                                                selectedValue,
-                                                                textAlign:
-                                                                    TextAlign
-                                                                        .center,
-                                                                style:
-                                                                    SafeGoogleFont(
-                                                                  'Helvetica',
-                                                                  fontSize:
-                                                                      15.5 *
-                                                                          ffem,
-                                                                  fontWeight:
-                                                                      FontWeight
-                                                                          .w500,
-                                                                  height:
-                                                                      1.2575 *
-                                                                          ffem /
-                                                                          fem,
-                                                                  color: Color(
-                                                                      0xffA8A8A8),
+                                                              child: TextFormField(
+                                                                controller: cityID,
+                                                                textAlign: TextAlign.center,
+                                                                decoration: InputDecoration(
+                                                                  contentPadding: EdgeInsets.fromLTRB(
+                                                                      15.0, 5.0, 5.0, 10.0),
+                                                                  //fillColor: Color(0xffF6F6F6),
+                                                                  //filled: true,
+                                                                  hintText: '${selectedValue}',
+                                                                  hintStyle: TextStyle(
+                                                                      color: Color(0xffa7a7a7)),
+                                                                  border: OutlineInputBorder(
+                                                                    borderSide: BorderSide.none,
+                                                                    borderRadius: BorderRadius.circular(
+                                                                        500 * fem),
+                                                                  ),
+                                                                  disabledBorder: InputBorder.none,
                                                                 ),
+                                                                style: SafeGoogleFont(
+                                                                  'Helvetica',
+                                                                  fontSize: 17 * ffem,
+                                                                  fontWeight: FontWeight.w400,
+                                                                  height: 1.25 * ffem / fem,
+                                                                  color: Color(0xff545252),
+                                                                ),
+                                                                onTap: (){
+                                                                  isExpanded = true;
+                                                                },
+                                                                onChanged: (value){
+                                                                  isExpanded = true;
+                                                                  _filtercity(value);
+                                                                },
                                                               ),
+                                                              //
+                                                              // child: TextField(
+                                                              //  // hintText: "Your Name",
+                                                              //   textAlign:
+                                                              //       TextAlign
+                                                              //           .center,
+                                                              //   style:
+                                                              //       SafeGoogleFont(
+                                                              //     'Helvetica',
+                                                              //     fontSize:
+                                                              //         15.5 *
+                                                              //             ffem,
+                                                              //     fontWeight:
+                                                              //         FontWeight
+                                                              //             .w500,
+                                                              //     height:
+                                                              //         1.2575 *
+                                                              //             ffem /
+                                                              //             fem,
+                                                              //     color: Color(
+                                                              //         0xffA8A8A8),
+                                                              //   ),
+                                                              // ),
                                                             ),
                                                             Icon(
                                                               isExpanded
@@ -1765,15 +1808,16 @@ class _OrderState extends State<Order> {
                                                 child: ListView(
                                                   shrinkWrap: true,
                                                   physics: ScrollPhysics(),
-                                                  children: citylist
+                                                  children: filtercitylist
                                                       .map((e) => InkWell(
                                                             onTap: () {
                                                               isExpanded =
                                                                   false;
-                                                              selectedValue = e;
-                                                              if(selectedValue!='choose your city ')
-                                                                drop=1;
+                                                             selectedValue=e;
+                                                              if(selectedValue!='choose your city ')// && cityID.text!=null)
+                                                                {drop=1;}
                                                               setState(() {
+                                                                cityID.text=e;
                                                                 city = e;
                                                               });
                                                             },

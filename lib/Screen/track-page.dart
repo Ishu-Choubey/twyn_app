@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'login.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
@@ -9,10 +11,76 @@ import 'package:flutter/foundation.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 import 'package:twyn_app/my_flutter_app_icons.dart';
 
-class Track extends StatelessWidget {
-  String name_="",color_="",status_="";
+class Track extends StatefulWidget {
   double quantity_;
+  String name_="",color_="",status_="";
   Track({required this.name_, required this.color_, required this.quantity_});
+
+  @override
+  State<Track> createState() => _TrackState();
+}
+
+class _TrackState extends State<Track> {
+  dynamic _color1 = Color(0xffcccbcb);
+  dynamic _color2 = Color(0xffcccbcb);
+  dynamic _color3 = Color(0xffcccbcb);
+  dynamic _color4 = Color(0xffcccbcb);
+  dynamic _color5 = Color(0xffcccbcb);
+  dynamic _color6 = Color(0xffcccbcb);
+  dynamic _color7 = Color(0xffcccbcb);
+  int count=0;
+  late Timer timer;
+
+  @override
+  void initState() {
+    timer = Timer.periodic(Duration(seconds: 5), (timer) {
+      setState(() {
+        count++;
+      });
+      if(count==1)
+        {
+          setState(() {
+            _color1=Color(0xffBC4772);
+          });
+        }
+      if(count==2)
+      {
+        setState(() {
+          _color2=Color(0xffBC4772);
+        });
+      }if(count==3)
+      {
+        setState(() {
+          _color3=Color(0xffBC4772);
+        });
+      }if(count==4)
+      {
+        setState(() {
+          _color4=Color(0xffBC4772);
+        });
+      }if(count==5)
+      {
+        setState(() {
+          _color5=Color(0xffBC4772);
+        });
+      }if(count==6)
+      {
+        setState(() {
+          _color6=Color(0xffBC4772);
+        });
+      }if(count==7)
+      {
+        setState(() {
+          _color7=Color(0xffBC4772);
+        });
+      }
+      if(count==8)
+      {
+        timer.cancel();
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -201,7 +269,7 @@ class Track extends StatelessWidget {
                                 ),),
                                 Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
                                     child: Text(
-                                        "${name_}",
+                                        "${widget.name_}",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -234,7 +302,7 @@ class Track extends StatelessWidget {
                                     ),
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(20*fem, 10*fem, 10*fem, 10*fem),
-                                    child: Text("${color_}",
+                                    child: Text("${widget.color_}",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -266,7 +334,7 @@ class Track extends StatelessWidget {
                                   ),),
                                 Padding(padding: EdgeInsets.fromLTRB(
                                     20 * fem, 10 * fem, 15 * fem, 10 * fem),
-                                    child: Text("${quantity_}gm",
+                                    child: Text("${widget.quantity_}gm",
                                         style: SafeGoogleFont(
                                           'Helvetica',
                                           fontSize: 14.5 * ffem,
@@ -277,7 +345,6 @@ class Track extends StatelessWidget {
                               ]
                           ),
                           TableRow(
-
                               children: [
                                 TableCell(
                                   verticalAlignment: TableCellVerticalAlignment.fill,
@@ -370,11 +437,11 @@ class Track extends StatelessWidget {
                               TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color1,
                                 ),
                                 isFirst: true,
                                 afterLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color1,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -383,7 +450,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color1,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -429,14 +496,14 @@ class Track extends StatelessWidget {
                               TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color2,
                                 ),
                                 afterLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color2,
                                   thickness: 3*fem,
                                 ),
                                 beforeLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color1,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -445,7 +512,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color2,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -491,14 +558,14 @@ class Track extends StatelessWidget {
                               TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color3,
                                 ),
                                 afterLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color3,
                                   thickness: 3*fem,
                                 ),
                                 beforeLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color2,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -507,7 +574,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color3,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -552,14 +619,14 @@ class Track extends StatelessWidget {
                               ),TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color4,
                                 ),
                                 afterLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color4,
                                   thickness: 3*fem,
                                 ),
                                 beforeLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color3,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -568,7 +635,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color4,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -613,14 +680,14 @@ class Track extends StatelessWidget {
                               ),TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color5,
                                 ),
                                 afterLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color5,
                                   thickness: 3*fem,
                                 ),
                                 beforeLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color4,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -629,7 +696,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color5,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -674,14 +741,14 @@ class Track extends StatelessWidget {
                               ),TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color6,
                                 ),
                                 afterLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color6,
                                   thickness: 3*fem,
                                 ),
                                 beforeLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color5,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -690,7 +757,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color6,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -735,11 +802,11 @@ class Track extends StatelessWidget {
                               ),TimelineTile(
                                 indicatorStyle: IndicatorStyle(
                                   width: 13*fem,
-                                  color: Color(0xffCCCBCB),
+                                  color: _color7,
                                 ),
                                 isLast: true,
                                 beforeLineStyle: LineStyle(
-                                  color: Color(0xffCCCBCB),
+                                  color: _color6,
                                   thickness: 3*fem,
                                 ),
                                 endChild: Padding(
@@ -748,7 +815,7 @@ class Track extends StatelessWidget {
                                     children: [
                                       Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xffCCCBCB),
+                                            color: _color7,
                                             borderRadius: BorderRadius.circular(50*fem)
                                         ),
                                         child: Padding(
@@ -803,5 +870,10 @@ class Track extends StatelessWidget {
         ),
       ),
     );
+  }
+  @override
+  void dispose() {
+    timer.cancel();
+    super.dispose();
   }
 }
