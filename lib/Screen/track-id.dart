@@ -149,7 +149,19 @@ class _trackidState extends State<trackid> {
                       ),
                     ],
                     radiusStyle: true,
-                    onToggle: (index) {
+                    onToggle: (index) async {
+                      if(allID=='') {
+                        QuerySnapshot querySnapshot = await FirebaseFirestore
+                            .instance.collection('users').doc(
+                            '${docid}').collection("orders").get();
+                        for (int i = 0; i <
+                            querySnapshot.docs.length; i++) {
+                          var a = querySnapshot.docs[i];
+                          setState(() {
+                            allID = '\n' + a.id + allID;
+                          });
+                        }
+                      }
                       setState(
                               (){
                             initialLabelIndex = index!;
@@ -367,21 +379,6 @@ class _trackidState extends State<trackid> {
                             constraints: BoxConstraints(
                               maxWidth: 265 * fem,
                             ),
-                            child: TextButton(
-                              onPressed: () async {
-                                if(allID=='') {
-                                  QuerySnapshot querySnapshot = await FirebaseFirestore
-                                      .instance.collection('users').doc(
-                                      '${docid}').collection("orders").get();
-                                  for (int i = 0; i <
-                                      querySnapshot.docs.length; i++) {
-                                    var a = querySnapshot.docs[i];
-                                    setState(() {
-                                      allID = '\n' + a.id + allID;
-                                    });
-                                  }
-                                }
-                              },
                               child: Text(
                                 "Previous Order's Track IDs",
                                 style: SafeGoogleFont(
@@ -392,7 +389,6 @@ class _trackidState extends State<trackid> {
                                   color: Color(0xff7c7979),
                                 ),
                               ),
-                            ),
                           ), //enter container
                           Container(
                             margin: EdgeInsets.fromLTRB(
