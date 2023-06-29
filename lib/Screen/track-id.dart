@@ -8,6 +8,7 @@ import 'track-page.dart';
 import 'login.dart';
 import 'package:twyn_app/functions/firebaseFunction.dart';
 import 'package:toggle_switch/toggle_switch.dart';
+import 'package:twyn_app/main.dart';
 
 class trackid extends StatefulWidget {
   @override
@@ -36,7 +37,7 @@ class _trackidState extends State<trackid> {
     double ffem = fem * 0.97;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Login())),},
+        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyApp())),},
         backgroundColor: Color(0xff4D1354),
         child: Icon(
           Icons.home_rounded,
@@ -262,7 +263,7 @@ class _trackidState extends State<trackid> {
                   Container(
                     // trackLrJ (18:31)
                     margin: EdgeInsets.fromLTRB(
-                        130 * fem, 0 * fem, 130 * fem, 0 * fem),
+                        155 * fem, 0 * fem, 155 * fem, 0 * fem),
                     child: TextButton(
                       onPressed: () async {
                         if (docId.text!.isNotEmpty){
@@ -307,7 +308,7 @@ class _trackidState extends State<trackid> {
                       ),
                       child: Container(
                         padding: EdgeInsets.fromLTRB(
-                            25 * fem, 13 * fem, 25 * fem, 13 * fem),
+                            0 * fem, 13 * fem, 0 * fem, 13 * fem),
                         width: double.infinity,
                         height: 65 * fem,
                         child: Container(

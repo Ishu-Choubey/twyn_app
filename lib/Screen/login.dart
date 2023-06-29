@@ -197,7 +197,7 @@ class Login extends StatelessWidget {
                             ),
                             Positioned(
                               // track7Yq (67:42)
-                              left: 94 * fem,
+                              left: 130 * fem,
                               top: 640 * fem,
                               child: TextButton(
                                 onPressed:  ()async{ await FirebaseAuth.instance.signOut();
@@ -208,8 +208,8 @@ class Login extends StatelessWidget {
                                 ),
                                 child: Container(
                                   padding: EdgeInsets.fromLTRB(
-                                      50 * fem, 10 * fem, 50 * fem, 10 * fem),
-                                  width: 241 * fem,
+                                      10 * fem, 10 * fem, 10 * fem, 10 * fem),
+                                  width: 170 * fem,
                                   height: 75 * fem,
                                   child: Container(
                                     // frame11RJd (I67:42;440:2022)

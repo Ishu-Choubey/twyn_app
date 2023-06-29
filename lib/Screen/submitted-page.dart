@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:twyn_app/main.dart';
 import 'dart:ui';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:twyn_app/utils.dart';
@@ -18,7 +19,7 @@ class Submit extends StatelessWidget {
     double ffem = fem * 0.97;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> Login())),},
+        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyApp())),},
         backgroundColor: Color(0xff4D1354),
         child: Icon(
           Icons.home_rounded,
@@ -191,7 +192,7 @@ class Submit extends StatelessWidget {
                         Container(
                           // placeRav (18:30)
                           margin: EdgeInsets.fromLTRB(
-                              31 * fem, 0 * fem, 31 * fem, 0),
+                              55 * fem, 0 * fem, 55 * fem, 0),
                           child: TextButton(
                             onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Order())),},
                             style: TextButton.styleFrom(
@@ -199,7 +200,7 @@ class Submit extends StatelessWidget {
                             ),
                             child: Container(
                               padding: EdgeInsets.fromLTRB(
-                                  25 * fem, 13 * fem, 25 * fem, 13 * fem),
+                                  0 * fem, 13 * fem, 0 * fem, 13 * fem),
                               width: double.infinity,
                               height: 65 * fem,
                               child: Container(
@@ -233,7 +234,7 @@ class Submit extends StatelessWidget {
                         Container(
                           // trackLrJ (18:31)
                           margin: EdgeInsets.fromLTRB(
-                              31 * fem, 0 * fem, 31 * fem, 0 * fem),
+                              55 * fem, 0 * fem, 55 * fem, 0 * fem),
                           child: TextButton(
                             onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=>Track(name_: name,color_: color,quantity_: Quantity))),},
                             style: TextButton.styleFrom(
@@ -241,7 +242,7 @@ class Submit extends StatelessWidget {
                             ),
                             child: Container(
                               padding: EdgeInsets.fromLTRB(
-                                  25 * fem, 13 * fem, 25 * fem, 13 * fem),
+                                  0 * fem, 13 * fem, 0 * fem, 13 * fem),
                               width: double.infinity,
                               height: 65 * fem,
                               child: Container(
