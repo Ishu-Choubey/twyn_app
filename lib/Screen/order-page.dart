@@ -1079,7 +1079,11 @@ class _OrderState extends State<Order> {
     double ffem = fem * 0.97;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyApp())),},
+        onPressed:  ()=> {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context){
+        return MyApp();
+        }), (r){
+        return false;
+        })},
         backgroundColor: Color(0xff4D1354),
         child: Icon(
             Icons.home_rounded,
@@ -1277,7 +1281,7 @@ class _OrderState extends State<Order> {
                                     10 * fem, 0 * fem, 0 * fem, 17 * fem),
                                 width: double.infinity,
                                 child: Text(
-                                  'Please Enter A Valid Name',
+                                  'Please enter a valid name',
                                   textAlign: TextAlign.left,
                                   style: SafeGoogleFont(
                                     'Helvetica',
@@ -1548,7 +1552,7 @@ class _OrderState extends State<Order> {
                                     10 * fem, 0 * fem, 0 * fem, 17 * fem),
                                 width: double.infinity,
                                 child: Text(
-                                  'Please Enter A Valid Color',
+                                  'Please select a color',
                                   textAlign: TextAlign.left,
                                   style: SafeGoogleFont(
                                     'Helvetica',
@@ -1632,7 +1636,7 @@ class _OrderState extends State<Order> {
                                               ),
                                               child: SfSlider(
                                                 min: 100,
-                                                max: 500,
+                                                max: 300,
                                                 stepSize: 100,
                                                 value: v,
                                                 interval: 100,
@@ -1881,7 +1885,7 @@ class _OrderState extends State<Order> {
                                     10 * fem, 10 * fem, 0 * fem, 0 * fem),
                                 width: double.infinity,
                                 child: Text(
-                                  'Please Enter A Valid City',
+                                  'Please enter a valid city',
                                   textAlign: TextAlign.left,
                                   style: SafeGoogleFont(
                                     'Helvetica',
@@ -1911,13 +1915,13 @@ class _OrderState extends State<Order> {
                                         errorcolor = 0;
                                       });
                                     }
-                                    if (drop == 1)
+                                    if (citylist.indexOf(cityID.text)!=-1)
                                     {
                                       setState(() {
                                         errorcity = 0;
                                       });
                                     }
-                                    if ((nameController.text!.isNotEmpty ||
+                                    if ((nameController.text!.isNotEmpty &&
                                         RegExp(r'^[a-z A-Z]+$')
                                             .hasMatch(nameController.text!)) && col == 1 && citylist.indexOf(cityID.text)!=-1) {
                                       DocumentReference docref=FirebaseFirestore.instance.collection('users').doc('${docid}');
@@ -1927,8 +1931,12 @@ class _OrderState extends State<Order> {
                                           'color': materialcolor,
                                           'quantity': quantity,
                                           'city': city,
+                                        'date': "${DateTime.now().day}-${DateTime.now().month}-${DateTime.now().year}",
+                                        'time': "${DateTime.now().hour}:${DateTime.now().minute}:${DateTime.now().second}",
+                                        'datetime': DateTime.now().toString(),
+                                        //'date': DateTime.now().toString().substring(0,10),
                                       }).then((DocumentReference doc) {
-                                        Navigator.of(context).push(
+                                        Navigator.of(context).pushReplacement(
                                             MaterialPageRoute(
                                                 builder: (context) => Submit(
                                                     name: nameController.text,
@@ -1942,7 +1950,7 @@ class _OrderState extends State<Order> {
                                     }//if closed
                                     else
                                       {
-                                        if(nameController.text.isEmpty &&
+                                        if(nameController.text.isEmpty ||
                                             !RegExp(r'^[a-z A-Z]+$')
                                                 .hasMatch(nameController.text!))
                                           {

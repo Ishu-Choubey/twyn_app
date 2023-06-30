@@ -9,6 +9,8 @@ import 'login.dart';
 import 'package:twyn_app/functions/firebaseFunction.dart';
 import 'package:toggle_switch/toggle_switch.dart';
 import 'package:twyn_app/main.dart';
+List<String> documentIDlist =<String>[];
+List<String> datetimelist =<String>[];
 
 class trackid extends StatefulWidget {
   @override
@@ -21,6 +23,8 @@ class _trackidState extends State<trackid> {
   int initialLabelIndex = 0;
   String allID='';
   final docId=TextEditingController();
+  var documentIDlist=<String>[];
+  var datetimelist=<String>[];
   // getalltrackID() async
   // {
   //   QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection('users').doc('${docid}').collection("orders").get();
@@ -37,7 +41,11 @@ class _trackidState extends State<trackid> {
     double ffem = fem * 0.97;
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed:  ()=> {Navigator.of(context).push(MaterialPageRoute(builder: (context)=> MyApp())),},
+        onPressed:  ()=> {Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (BuildContext context){
+          return MyApp();
+        }), (r){
+          return false;
+        })},
         backgroundColor: Color(0xff4D1354),
         child: Icon(
           Icons.home_rounded,
@@ -151,17 +159,32 @@ class _trackidState extends State<trackid> {
                     radiusStyle: true,
                     onToggle: (index) async {
                       if(allID=='') {
+
                         QuerySnapshot querySnapshot = await FirebaseFirestore
                             .instance.collection('users').doc(
-                            '${docid}').collection("orders").get();
+                            '${docid}').collection("orders").orderBy('datetime').get();
+
                         for (int i = 0; i <
                             querySnapshot.docs.length; i++) {
                           var a = querySnapshot.docs[i];
                           setState(() {
+                            documentIDlist.add(a.id);
                             allID = '\n' + a.id + allID;
                           });
+                          await FirebaseFirestore.instance.collection('users').doc('${docid}').collection('orders').doc(a.id)
+                              .get()
+                              .then((DocumentSnapshot dss) {
+                            if (dss.exists) {
+                              setState(() {
+                                datetimelist.add(dss['datetime']);
+                              });
+                            }
+                          }
+                          );//collref
                         }
                       }
+                      print(datetimelist);
+                      print(documentIDlist);
                       setState(
                               (){
                             initialLabelIndex = index!;
@@ -289,7 +312,7 @@ class _trackidState extends State<trackid> {
                             if(value.exists) {
                               errorname=0;
                               ds = value;
-                              Navigator.of(context).push(
+                              Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(
                                       builder: (context) =>
                                           Track(
@@ -351,80 +374,159 @@ class _trackidState extends State<trackid> {
                     ),
                   ), //track button
                   ])
-                  :Container(
-                    // autogroupdwrniWA (Xp2uW5Bq3bTJBt4wBzDwrn)
-                    margin: EdgeInsets.fromLTRB(
-                        45 * fem, 95 * fem, 45 * fem, 35 * fem),
-                    padding: EdgeInsets.fromLTRB(
-                        30 * fem, 55 * fem, 30 * fem, 55 * fem),
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      color: Color(0xfffafafa),
-                      borderRadius: BorderRadius.circular(33 * fem),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x26000000),
-                          offset: Offset(7 * fem, 6 * fem),
-                          blurRadius: 6 * fem,
-                        ),
-                      ],
-                    ),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Container(
-                            // order id enter
-                            margin: EdgeInsets.fromLTRB(
-                                0 * fem, 0 * fem, 0 * fem, 20 * fem),
-                            constraints: BoxConstraints(
-                              maxWidth: 265 * fem,
-                            ),
-                              child: Text(
-                                "Previous Order's Track IDs",
-                                style: SafeGoogleFont(
-                                  'Helvetica',
-                                  fontSize: 18 * ffem,
-                                  fontWeight: FontWeight.w600,
-                                  height: 1.2575 * ffem / fem,
-                                  color: Color(0xff7c7979),
-                                ),
+                  :Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Container(
+                          // order id enter
+                          margin: EdgeInsets.fromLTRB(
+                              0 * fem, 30 * fem, 0 * fem, 30 * fem),
+                          constraints: BoxConstraints(
+                            maxWidth: 265 * fem,
+                          ),
+                            child: Text(
+                              "Previous Order's Track IDs",
+                              style: SafeGoogleFont(
+                                'Helvetica',
+                                fontSize: 18 * ffem,
+                                fontWeight: FontWeight.w600,
+                                height: 1.2575 * ffem / fem,
+                                color: Color(0xff7c7979),
                               ),
-                          ), //enter container
-                          Container(
+                            ),
+                        ), //enter container
+                        Container(
                             margin: EdgeInsets.fromLTRB(
-                                15 * fem, 0 * fem, 8 * fem, 7 * fem),
+                                40 * fem, 0 * fem, 40 * fem, 0 * fem),
                             width: double.infinity,
-                            child: Container(
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                  color: Color(0xffF6F6F6),
-                                  borderRadius:
-                                  BorderRadius.circular(33 * fem),
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color(0x120000000),
-                                      offset: Offset(7 * fem, 6 * fem),
-                                      blurRadius: 6 * fem,
-                                    ),
-                                  ]),
-                              child: Padding(
-                                padding: EdgeInsets.fromLTRB(8.0*fem, 0*fem,8*fem,20*fem),
-                                child: SelectableText(
-                                  textAlign: TextAlign.center,
-                                  '${allID}',
-                                  style: SafeGoogleFont(
-                                    'Helvetica',
-                                    fontSize: 17 * ffem,
-                                    fontWeight: FontWeight.w500,
-                                    height: 1.25 * ffem / fem,
-                                    color: Color(0xff545252),
+                            decoration: BoxDecoration(
+                                color: Color(0xfffafafa),
+                                borderRadius:
+                                BorderRadius.circular(33 * fem),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: Color(0x120000000),
+                                    offset: Offset(7 * fem, 6 * fem),
+                                    blurRadius: 6 * fem,
                                   ),
-                                ),
+                                ]),
+
+                            child: Table(
+                              columnWidths: {
+                                0: FixedColumnWidth(90*fem),
+                                1: FixedColumnWidth(80*fem), // fixed to 100 width
+                              },
+                              border: TableBorder.symmetric(
+                                outside: BorderSide.none,
+                                inside: const BorderSide(width: 1, color: Color(0xffD9D9D9), style: BorderStyle.solid),
                               ),
-                            ),
-                          ), //text box
-                        ]
-                    ),
+                              children: [
+                                TableRow(
+                                    children: [
+                                      TableCell(
+                                        verticalAlignment: TableCellVerticalAlignment.fill,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xffF0F0F0),
+                                          ),
+                                          child: Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
+                                              child: Center(
+                                                child: Text("Date",
+                                                    style: SafeGoogleFont(
+                                                      'Helvetica',
+                                                      fontSize: 14.5 * ffem,
+                                                      fontWeight: FontWeight.w600,
+                                                      height: 1.2575 * ffem / fem,
+                                                      color: Color(0xff000000),)),
+                                              )
+                                          ),
+                                        ),),
+                                      TableCell(
+                                        verticalAlignment: TableCellVerticalAlignment.fill,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xffF0F0F0),
+                                          ),
+                                          child: Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
+                                              child: Center(
+                                                child: Text("Time",
+                                                    style: SafeGoogleFont(
+                                                      'Helvetica',
+                                                      fontSize: 14.5 * ffem,
+                                                      fontWeight: FontWeight.w600,
+                                                      height: 1.2575 * ffem / fem,
+                                                      color: Color(0xff000000),)),
+                                              )
+                                          ),
+                                        ),),
+                                      Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
+                                          child: Center(
+                                            child: Text("Order ID",
+                                                style: SafeGoogleFont(
+                                                  'Helvetica',
+                                                  fontSize: 14.5 * ffem,
+                                                  fontWeight: FontWeight.w600,
+                                                  height: 1.2575 * ffem / fem,
+                                                  color: Color(0xff000000),)),
+                                          )
+                                      ),
+                                    ]
+                                ),
+                                  for (int i = documentIDlist.length-1; i >=0; i--) TableRow(
+                                    children: [
+                                      TableCell(
+                                        verticalAlignment: TableCellVerticalAlignment.fill,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xffF0F0F0),
+                                          ),
+                                          child: Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
+                                              child: Center(
+                                                child: Text("${datetimelist[i].substring(0,10)}",
+                                                    style: SafeGoogleFont(
+                                                      'Helvetica',
+                                                      fontSize: 14.5 * ffem,
+                                                      fontWeight: FontWeight.w600,
+                                                      height: 1.2575 * ffem / fem,
+                                                      color: Color(0xffA8A8A8),)),
+                                              )
+                                          ),
+                                        ),),
+                                      TableCell(
+                                        verticalAlignment: TableCellVerticalAlignment.fill,
+                                        child: Container(
+                                          decoration: BoxDecoration(
+                                            color: Color(0xffF0F0F0),
+                                          ),
+                                          child: Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
+                                              child: Center(
+                                                child: Text("${datetimelist[i].substring(11,19)}",
+                                                    style: SafeGoogleFont(
+                                                      'Helvetica',
+                                                      fontSize: 14.5 * ffem,
+                                                      fontWeight: FontWeight.w600,
+                                                      height: 1.2575 * ffem / fem,
+                                                      color: Color(0xffA8A8A8),)),
+                                              )
+                                          ),
+                                        ),),
+                                      Padding(padding: EdgeInsets.fromLTRB(10*fem, 10*fem, 10*fem, 10*fem),
+                                          child: Center(
+                                            child: SelectableText("${documentIDlist[i]}",
+                                                style: SafeGoogleFont(
+                                                  'Helvetica',
+                                                  fontSize: 14.5 * ffem,
+                                                  fontWeight: FontWeight.w600,
+                                                  height: 1.2575 * ffem / fem,
+                                                  color: Color(0xffA8A8A8),)),
+                                          )
+                                      ),
+                                    ]
+                                ),
+                              ],
+                            )
+                        ),
+                      ]
                   ),
                 ],
               ),

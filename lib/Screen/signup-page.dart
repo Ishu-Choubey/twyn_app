@@ -258,14 +258,14 @@ class _SignuppageState extends State<Signuppage> {
                                       10 * fem, 0 * fem, 0 * fem, 0 * fem),
                                   width: double.infinity,
                                   child: Text(
-                                    'Please Enter A Valid Name',
+                                    'Please enter a valid name',
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Helvetica',
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w600,
                                       height: 1.25 * ffem / fem,
-                                      color: Colors.red,
+                                      color: Color(0xff6c0000),
                                     ),
                                   ),
                                 ):Container(),
@@ -315,7 +315,7 @@ class _SignuppageState extends State<Signuppage> {
                                       ),
                                       validator: (value){
 
-                                        if(value!.isEmpty || !RegExp(r'((\+*)((0[ -]*)*|((91 )*))((\d{12})+|(\d{10})+))|\d{5}([- ]*)\d{6}').hasMatch(value!))
+                                        if(value!.isEmpty || !RegExp(r'^(\+91|\+91\-|0)?[789]\d{9}$').hasMatch(value!))
                                         {
                                           setState(() {
                                             phoneerror=true;
@@ -340,14 +340,14 @@ class _SignuppageState extends State<Signuppage> {
                                       10 * fem, 0 * fem, 0 * fem, 0 * fem),
                                   width: double.infinity,
                                   child: Text(
-                                    'Please Enter A Valid Phone Number',
+                                    'Please enter a valid phone number',
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Helvetica',
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w600,
                                       height: 1.25 * ffem / fem,
-                                      color: Colors.red,
+                                      color: Color(0xff6c0000),
                                     ),
                                   ),
                                 ):Container(),
@@ -397,7 +397,7 @@ class _SignuppageState extends State<Signuppage> {
                                       ),
                                       validator: (value){
                                         if(value!.isEmpty ||
-                                            !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+$")
+                                            !RegExp(r'^(([^<>()[\]\\!#$%&*+-/=?^_`{|}~.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$')
                                                 .hasMatch(value!))
                                             {
                                           setState(() {
@@ -423,14 +423,14 @@ class _SignuppageState extends State<Signuppage> {
                                       10 * fem, 0 * fem, 0 * fem, 0 * fem),
                                   width: double.infinity,
                                   child: Text(
-                                    'Please Enter A Valid Email',
+                                    'Please enter a valid email',
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Helvetica',
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w600,
                                       height: 1.25 * ffem / fem,
-                                      color: Colors.red,
+                                      color: Color(0xff6c0000),
                                     ),
                                   ),
                                 ):Container(),
@@ -507,14 +507,14 @@ class _SignuppageState extends State<Signuppage> {
                                       10 * fem, 3 * fem, 0 * fem, 0 * fem),
                                   width: double.infinity,
                                   child: Text(
-                                    'Password Must Consist Of Atleast 1 Uppercase, 1 Lowercase, 1 Numeric Number And 1 Special Character( ! @ # & * ~ )',
+                                    'Password must contain atleast 1 uppercase, 1 lowercase, 1 numeric number and 1 special character( ! @ # & * ~ )',
                                     textAlign: TextAlign.left,
                                     style: SafeGoogleFont(
                                       'Helvetica',
                                       fontSize: 12 * ffem,
                                       fontWeight: FontWeight.w600,
                                       height: 1.25 * ffem / fem,
-                                      color: Colors.red,
+                                      color: Color(0xff6c0000),
                                     ),
                                   ),
                                 ):Container(),

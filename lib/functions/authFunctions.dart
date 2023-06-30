@@ -33,6 +33,7 @@ import 'firebaseFunction.dart';
           .signInWithEmailAndPassword(email: email, password: password);
         await FirestoreServices.currentuserid();
       ScaffoldMessenger.of(context)
+
           .showSnackBar(SnackBar(content: Text('You are Logged in')));
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {
