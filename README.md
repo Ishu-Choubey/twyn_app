@@ -1,6 +1,6 @@
 # twyn_app
 
-A new Flutter project.
+An E-Commerce app.
 
 ## Getting Started
 
